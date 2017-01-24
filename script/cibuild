@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Run the `check` Makefile target
+echo "INFO: Building and testing.."
+
+# cargo fmt -- --write-mode=diff
+
+cargo build --features clippy --verbose
+cargo test --features clippy --verbose
+
+echo "INFO: Building docs.."
+cargo doc
+
+exit

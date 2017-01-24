@@ -1,0 +1,6 @@
+format_strings = true
+reorder_imports = true
+normalise_comments = false
+use_try_shorthand = true
+max_width = 80
+ideal_width = 72
