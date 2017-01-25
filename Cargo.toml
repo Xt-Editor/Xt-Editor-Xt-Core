@@ -15,7 +15,7 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "xtc"
-path = "src/bin/xtensis-core.rs"
+path = "src/bin/xtc.rs"
 
 [features]
 default= []
