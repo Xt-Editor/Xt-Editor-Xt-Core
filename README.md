@@ -28,16 +28,22 @@ decided to *do* something about it- make my own editor. Xtensis.
 
 ### Core goals
 
-#### Highly extensible
+#### Extendable
 
-xtensis is intended to be as extensible as possible, much in the same
-manner as GNU Emacs, but without the added bloat. Of course, this is a
-difficult balance to keep, but where there's a will- there's a way.
+xtensis is intended to be as extendable as possible, much in the same
+manner as GNU Emacs, but without the added bloat. (Hint: Tetris?!)
+
+Of course, this is a difficult balance to keep, but by keeping the
+core small and extendable, and using plugins to manage additional
+functions- this _can_ be achieved.
 
 #### Minimal
 
 xtensis is designed to be minimal. It aims to provide APIs for
-extensions, and not implement the frontend in the xtensis core.
+extensions, and not implement the frontend in the Core subsystem.
+
+Instead, frontends are of a modular nature. You can use a Qt frontend,
+a Terminal frontend, or even GTK!
 
 #### Flexible
 
