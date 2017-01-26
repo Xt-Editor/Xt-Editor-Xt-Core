@@ -2,15 +2,13 @@
 
 ## Logging
 
-- `log4rs` crate.
+Will be using `slog` for logging.
 
 ## RPC libraries
 
-Going to be using msgpack-rpc, which is similar to JSON-RPC, but using
-msgpack for the encoding.
+Will be using plain JSON for now.
 
-I also aim to make the backend for that modular, so users can use
-msgpack-rpc or just plain JSON-RPC instead.
+`msgpack` support might come soon as an optional feature.
 
 ## Data structures
 
@@ -18,7 +16,7 @@ msgpack-rpc or just plain JSON-RPC instead.
 
 A similar project to mine, xi-editor, has developed it's own library
 called 'rope', which stores large strings (ideal for large buffers!),
-in a B-Tree data structure.
+in a B-Tree data structure. NOTE: **not** documented well.
 
 ### Gapbuffer
 

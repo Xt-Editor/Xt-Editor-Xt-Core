@@ -3,23 +3,24 @@
 ## Goals
 
 - Minimalist
-- Extensible
-- Speed
+- Extendable
+- Fast
 
 ## Key features
 
 - Package/plugin support.
-  - JSON-RPC interface to `xtensis/core`
+  - JSON interface to `xtensis/core`
 
 - Encourage customisation.
-  Like with Emacs, I want xtensis to encourage customisation of the
-  core, plugins and other components.
+  xtensis should encourage customisation of the core, plugins and
+  other components.
 
 - Provide a set of defaults.
   These *could* be Emacs-style for now, in terms of keybindings.
 
 - Written in Rust.
-  Rust offers safety features.
+
+- Extendable and fast.
 
 ## Core functions
 
@@ -53,7 +54,7 @@
 
 We should aim for a high startup speed for both the core, and
 frontend, but the client/server architecture would be good to have as
-well.
+well, a la `emacsclient` and `emacs` pair.
 
 ### Backend / Frontend infrastructure
 
@@ -70,18 +71,17 @@ array, similar to pagination.
 
 (I got this idea from @spudowiar who mentioned Xi's editor method of
 transferring data frontend <--> backend, and how it was
-inefficient. For the most part, @spudowiar has the right idea
-here. KISS it.)
+inefficient. @spudowiar has the right idea here.)
 
 ### Frontend
 
 #### Frontend boot-up
 
-The frontend will bootstrap itself on launch (this should be quick! -
-caching?), and if there's no server available, launch, wait for a
-`READY` signal, and then start the frontend.
+The frontend will bootstrap itself on launch (this should be quick!!)
+, and if there's no server available, launch, wait for a `READY`
+signal, and then start the frontend.
 
-xtensis-core should have API's to deal with everyday tasks
+xtensis-core should have API's to deal with everyday tasks.
 
 ## Addons
 
@@ -99,25 +99,25 @@ The permissions model would be along the lines of this:
 
 (This is *not* a definitive list yet)
 
-- `PERM_READ_BUFFER`
+- `org.xtensis.permissions.buffers.read_buffer`
    This permission grants access to read a buffer's contents.
    At the time of writing, this does *not* grant read access on a
    per-line basis, but that would be something to look into in future.
 
-- `PERM_READ_BUFFER_RNG_L<line_begin>_L<line_end>`
-  This would allow 'ranges' of lines to be read.
+- `org.xtensis.permissions.buffers.line_range_read`
+  Arguments: line_begin, line_end
+  
+  This would allow 'ranges' of lines to be read by the text editor.
+  Probably not _particularly_ useful.
 
-- `PERM_EDIT_BUFFER`
+- `org.xtensis.permissions.buffers.edit_buffer`
   This permission grants access to edit a buffer's contents.
 
   This gives all-area write access to the buffer, and does not
   restrict on a per-line basis.
 
-- `PERM_ACCESS_NET`
-  This permission grants access to access the wider network.
-  The question remains on *how* to enforce this.
-
-- `PERM_HOOK_INTO_MAMODE`
+- `org.xtensis.permissions.modes.minor_hook.add`
+  Arguments: `buffer_id`, `hook_name`
 
   This permission grants access for a plugin to hook into a major
   mode.
