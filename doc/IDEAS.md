@@ -94,31 +94,35 @@ The permissions model would be along the lines of this:
 
 (This is *not* a definitive list yet)
 
-- `org.xtensis.permissions.buffers.read_buffer`
+- `xtensis.permissions.buffers.read_buffer`
+  Arguments: `buffer_id`
+
    This permission grants access to read a buffer's contents.
    At the time of writing, this does *not* grant read access on a
    per-line basis, but that would be something to look into in future.
 
-- `org.xtensis.permissions.buffers.line_range_read`
-  Arguments: line_begin, line_end
+- `xtensis.permissions.buffers.line_range_read`
+  Arguments: `line_begin`, `line_end`
   
   This would allow 'ranges' of lines to be read by the text editor.
-  Probably not _particularly_ useful.
 
-- `org.xtensis.permissions.buffers.edit_buffer`
+- `xtensis.permissions.buffers.edit_buffer`
+  Arguments: `buffer_id`
+
   This permission grants access to edit a buffer's contents.
 
   This gives all-area write access to the buffer, and does not
   restrict on a per-line basis.
 
-- `org.xtensis.permissions.modes.minor_hook.add`
-  Arguments: `buffer_id`, `hook_name`
+- `xtensis.permissions.modes.minor_hook.add`
+  Arguments: `buffer_id`, `hook_id`
 
   This permission grants access for a plugin to hook into a major
   mode.
 
-  Normally, no plugin should be allowed to hook into a buffer by
-  *default* - but this can be globally changed.
+  Ideally, **no** third party plugin should be allowed to hook into a
+  buffer/mode by default. But that is just a convention, and _can_ be
+  overridden.
 
 To the best of my knowledge, *no* other editor supports a permissions
 model, and thus, `xtensis` would be the first editor of its kind to
