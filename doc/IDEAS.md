@@ -2,7 +2,7 @@
 
 ## Goals
 
-- Minimalist
+- Minimal
 - Extendable
 - Fast
 
