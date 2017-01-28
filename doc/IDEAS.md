@@ -9,7 +9,7 @@
 ## Key features
 
 - Package/plugin support.
-  - JSON interface to `xtensis/core`
+  - JSON-API interface to `xtensis/core`
 
 - Encourage customisation.
   xtensis should encourage customisation of the core, plugins and
