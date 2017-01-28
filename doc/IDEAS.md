@@ -4,7 +4,7 @@
 
 - Minimal
 - Extendable
-- Fast
+- Speedy
 
 ## Key features
 
