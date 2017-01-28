@@ -85,11 +85,6 @@ xtensis-core should have API's to deal with everyday tasks.
 
 ## Addons
 
-### Web browser embedding support, via Servo
-
-This might be useful for web developers who want to preview code *in*
-xtensis.
-
 ## Permission model
 
 Like the Android's permissions model, I have been toying with the idea
