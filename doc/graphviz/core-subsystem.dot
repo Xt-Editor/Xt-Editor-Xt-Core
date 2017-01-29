@@ -1,0 +1,23 @@
+digraph coresubsys {
+    node[shape=record];
+
+    xtc [label="xtensis-core"];
+    frontend [label="xtensis-frontend-sys"];
+    qt_frontend [label="xtensis-frontend-qt"];
+    term_frontend [label="xtensis-frontend-term"];
+    gtk_frontend [label="xtensis-frontend-gtk"];
+    client [label="xtensis-client"];
+    plugin [label="xtensis-plugin-sys"];
+    completion [label="xtensis-completion"];
+
+    xtc->frontend [dir="both"];
+    frontend->qt_frontend [dir="both"];
+    frontend->term_frontend [dir="both"];
+    frontend->gtk_frontend [dir="both"];
+
+    xtc->plugin [dir="both"];
+    xtc->completion [dir="both"];
+
+    xtc->client [dir="both"];
+}
+
