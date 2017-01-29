@@ -1,6 +1,6 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
-description = "Extensible editing: screw limits."
+description = "Extendable editing: ignore the rules."
 homepage = "https://github.com/xtensis-editor/xtensis"
 keywords = ["editor", "framework", "text"]
 license = "GPL-3.0"

@@ -5,7 +5,7 @@
     <a href="https://github.com/xtensis-editor/xtensis-core">Xtensis Editor</a>
 </h1>
 
-<h4 align="center">Extensible editing: screw limits.</h4>
+<h4 align="center">Extendable editing: ignore the rules.</h4>
 
 ![Travis-CI Build Status][travis-ci]
 ![Codecov.io coverage][codecov]
