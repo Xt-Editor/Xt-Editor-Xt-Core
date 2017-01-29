@@ -45,14 +45,12 @@ extensions, and not implement the frontend in the Core subsystem.
 Instead, frontends are of a modular nature. You can use a Qt frontend,
 a Terminal frontend, or even GTK!
 
-#### Flexible
+#### Fast
 
-xtensis is also designed to be flexible.
+Xtensis _should_ be fast to run, without too much of a delay.
 
-This means that the core should be able to be extended: extensions to
-be added to the editor (syntax checking, for example) in a fluid
-manner, along with separate architectures for `core/client`,
-`core/ui`, and `core/extension`.
+Additionally, background processes should be put into a queue for
+asynchronous processing.
 
 ### Disclaimer
 
