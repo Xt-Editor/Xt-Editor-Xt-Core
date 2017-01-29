@@ -12,16 +12,17 @@
 ![Crates.io][cratesio]
 ![GHReleases][ghrel]
 
-## Why
+## Why create Xtensis?
 
 ### Dissatisfaction with the current options
 
 I've tried a lot of tools for text editing: Eclipse, IntelliJ Emacs,
-{Neo}vim, even Atom.
+{Neo}vim and Atom.
 
 I never felt that I could get the **most** out of these editors, which
 made using them a sub-par experience. The only editor I did get the
-most out of was Emacs, but it had several deficiencies.
+most out of was Emacs, but it had several deficiencies, such as the
+single threaded nature of Emacs.
 
 I kept complaining for a while about the problems I was having, but
 decided to *do* something about it- make my own editor. Xtensis.
@@ -55,9 +56,6 @@ asynchronous processing.
 ### Disclaimer
 
 It goes without saying, but this project is heavily in development.
-
-At the time of writing, `xtensis/core` is not able to store buffers or
-communicate over RPC.
 
 ### Documentation for xtensis
 
