@@ -32,7 +32,7 @@ slog-scope = "*"
 time = "0.1.35"
 
 [dependencies.clippy]
-version = "0.0.111"
+version = "0.0.112"
 optional = true
 
 [dependencies.uuid]
