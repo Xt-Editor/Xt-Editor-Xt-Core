@@ -16,8 +16,8 @@
 
 ### Dissatisfaction with the current options
 
-I've tried a lot of tools for text editing: Eclipse, IntelliJ Emacs,
-{Neo}vim and Atom.
+I've tried a lot of tools for text editing: Eclipse, IDEA, GNU Emacs,
+Neovim, Vim, nano and yes, even Atom.
 
 I never felt that I could get the **most** out of these editors, which
 made using them a sub-par experience. The only editor I did get the
