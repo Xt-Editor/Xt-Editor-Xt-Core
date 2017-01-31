@@ -10,8 +10,8 @@ echo "INFO: Building and testing.."
 
 # cargo fmt -- --write-mode=diff
 
-cargo build --features clippy --verbose
-cargo test --features clippy --verbose
+cargo build --verbose
+cargo test --verbose
 
 echo "INFO: Building docs.."
 cargo doc
