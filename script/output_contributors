@@ -1,0 +1,13 @@
+#!/bin/sh -eu
+
+source "${PWD}/utils.sh"
+
+echo "${GREEN}INFO:${RESET} Outputting list of contributors.."
+
+OUTPUT="$(git shortlog -sne)"
+
+echo "${OUTPUT}" > AUTHORS
+
+echo "${GREEN}INFO:${RESET} ..Complete."
+
+exit

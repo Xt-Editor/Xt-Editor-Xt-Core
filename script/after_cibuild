@@ -1,8 +1,6 @@
-#!/bin/bash
+#!/bin/sh -eu
 
-set -euo pipefail
-
-if [[ -d "$HOME/kcov" ]]; then
+if [ -d "$HOME/kcov" ]; then
     export PATH="$HOME/kcov/bin:$PATH"
 else
     exit 1
@@ -18,7 +16,3 @@ for file in target/debug/xtc-*; do
          --verify "target/cov/$(basename "$file")" \
          "$file"
 done
-
-bash <(curl -s https://codecov.io/bash)
-
-echo "INFO: Uploaded code coverage."

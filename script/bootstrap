@@ -1,19 +1,23 @@
-#!/bin/bash
+#!/bin/sh -eu
 
-set -euo pipefail
+kcov_build_dir="$(mktemp -d)"
+kcov_dir="${PWD}/kcov"
 
-if [[ ! -d "$HOME/kcov" ]]; then
-    git clone https://github.com/SimonKagstrom/kcov
+if [ ! -d "${kcov_dir}" ]; then
+    git clone https://github.com/SimonKagstrom/kcov "${kcov_build_dir}"
     cd kcov || exit 1
-    mkdir build
-    cd build || exit 1
-    cmake -DCMAKE_INSTALL_PREFIX:PATH="$HOME/kcov" ..
+    mkdir build && cd build || exit 1
+    
+    cmake -DCMAKE_INSTALL_PREFIX:PATH="${kcov_dir}" ..
+    
     make
     make install
 fi
 
 pip install --user sphinx sphinx-autobuild
 
-cargo install rustfmt || true
+cargo install rustfmt
+
+git submodule update --init --recursive
 
 exit
