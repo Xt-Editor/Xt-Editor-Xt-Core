@@ -1,0 +1,19 @@
+defaultTasks 'buildXtensis'
+
+task cleanUp(type: Delete) {
+  println('Cleaning up..')
+  
+  delete './target'
+
+  doLast {
+    println("Flushed away old files..")
+  }
+}
+
+task buildXtensis(type: Exec) {
+  println('Building with Cargo...')
+
+  commandLine('cargo', 'build')
+
+  println('Built!')
+}
