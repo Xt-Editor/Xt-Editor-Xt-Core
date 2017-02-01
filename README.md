@@ -57,7 +57,7 @@ You can read the documentation (gracefully hosted by ReadTheDocs.io)
 for Xtensis [here][rtd-xtensis].
 
 Other documentation can be found in the `docs/` folder in the root of
-this repo.
+this repository.
 
 ## Current status
 
