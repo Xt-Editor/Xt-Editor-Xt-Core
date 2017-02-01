@@ -1,19 +1,5 @@
 #!/bin/sh -eu
 
-kcov_build_dir="$(mktemp -d)"
-kcov_dir="${PWD}/kcov"
-
-if [ ! -d "${kcov_dir}" ]; then
-    git clone https://github.com/SimonKagstrom/kcov "${kcov_build_dir}"
-    cd kcov || exit 1
-    mkdir build && cd build || exit 1
-    
-    cmake -DCMAKE_INSTALL_PREFIX:PATH="${kcov_dir}" ..
-    
-    make
-    make install
-fi
-
 pip install --user sphinx sphinx-autobuild
 
 cargo install rustfmt
