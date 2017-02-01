@@ -14,8 +14,9 @@
 ## History
 
 I started work on Xtensis when I got tired of the current tooling for
-text editing. I felt a new contenter was necessary that took
-inspiration from everything else.
+text editing. I felt a new contender was necessary that took
+inspiration from everything else, and turned them into a versatile
+idea.
 
 (Xtensis was previously known as Slacs. It was changed to prevent
 ambiguity with Slack.)
