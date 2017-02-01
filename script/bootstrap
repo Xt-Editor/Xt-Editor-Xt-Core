@@ -2,7 +2,7 @@
 
 pip install --user sphinx sphinx-autobuild
 
-cargo install rustfmt
+cargo install --force rustfmt
 
 git submodule update --init --recursive
 
