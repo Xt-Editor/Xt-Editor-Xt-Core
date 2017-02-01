@@ -2,9 +2,9 @@
 
 echo "${WORKSPACE}"
 
-if [[ -v "${TRAVIS_BUILD_DIR}" ]]; then
+if [[ -n "${TRAVIS_BUILD_DIR}" ]]; then
     export WORK_DIR="${TRAVIS_BUILD_DIR}"
-elif [[ -v "${WORKSPACE}" ]]; then
+elif [[ -n "${WORKSPACE}" ]]; then
     export WORK_DIR="${WORKSPACE}"
 else
     echo "Unknown workspace."
