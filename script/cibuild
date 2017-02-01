@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "${WORKSPACE}"
+
 if [[ -v "${TRAVIS_BUILD_DIR}" ]]; then
     export WORK_DIR="${TRAVIS_BUILD_DIR}"
 elif [[ -v "${WORKSPACE}" ]]; then
