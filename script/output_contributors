@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-source "${PWD}/utils.sh"
+source "${PWD}/script/utils.sh"
 
 echo "${GREEN}INFO:${RESET} Outputting list of contributors.."
 
