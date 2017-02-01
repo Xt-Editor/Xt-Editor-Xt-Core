@@ -1,4 +1,17 @@
-#!/bin/sh -eu
+#!/bin/bash
+
+if [ -z "${WORKSPACE}" ]; then
+    WORK_DIR="${TRAVIS_BUILD_DIR}"
+    export WORK_DIR
+elif [ -e "${WORKSPACE}" ]; then
+    WORK_DIR="${WORKSPACE}"
+    export WORK_DIR
+else
+    echo "Unknown workspace."
+    exit 1
+fi
+
+set -eu
 
 pip install --user sphinx sphinx-autobuild
 

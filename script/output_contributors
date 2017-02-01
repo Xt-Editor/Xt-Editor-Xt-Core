@@ -1,12 +1,11 @@
-#!/bin/sh -eu
+#!/bin/bash -eu
 
+# shellcheck source=/dev/null
 . "${PWD}/script/utils.sh"
 
 echo -e "${GREEN}INFO:${RESET} Outputting list of contributors.."
 
-OUTPUT="$(git shortlog -sne)"
-
-echo "${OUTPUT}" > AUTHORS
+git shortlog -sne > AUTHORS
 
 echo -e "${GREEN}INFO:${RESET} ..Complete."
 

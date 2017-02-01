@@ -1,10 +1,24 @@
-#!/bin/sh -eu
+#!/bin/bash
 
-if [ -d "$HOME/kcov" ]; then
-    export PATH="$HOME/kcov/bin:$PATH"
+if [ -z "${WORKSPACE}" ]; then
+    WORK_DIR="${TRAVIS_BUILD_DIR}"
+    export WORK_DIR
+elif [ -e "${WORKSPACE}" ]; then
+    WORK_DIR="${WORKSPACE}"
+    export WORK_DIR
 else
+    echo "Unknown workspace."
     exit 1
 fi
+
+if [ -d "${WORK_DIR}/.kcov" ]; then
+    export PATH="${WORK_DIR}/.kcov/bin:$PATH"
+else
+    echo "Could not find kcov."
+    exit 1
+fi
+
+set -eu
 
 # Generate coverage files
 
