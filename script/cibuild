@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "${WORKSPACE}"
-
 if [[ -n "${TRAVIS_BUILD_DIR}" ]]; then
     export WORK_DIR="${TRAVIS_BUILD_DIR}"
 elif [[ -n "${WORKSPACE}" ]]; then
@@ -12,8 +10,6 @@ else
 fi
 
 set -eu
-
-echo "${WORK_DIR}"
 
 # shellcheck source=/dev/null
 . "${PWD}/script/utils.sh"
