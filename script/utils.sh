@@ -2,5 +2,5 @@
 
 export TERM="xterm-256color"
 
-GREEN="$(tput setaf 2)"
-RESET="$(tput sgr0)"
+GREEN='\e[0;32m'
+RESET='\e[0m'

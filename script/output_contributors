@@ -2,12 +2,12 @@
 
 source "${PWD}/script/utils.sh"
 
-echo "${GREEN}INFO:${RESET} Outputting list of contributors.."
+echo -e "${GREEN}INFO:${RESET} Outputting list of contributors.."
 
 OUTPUT="$(git shortlog -sne)"
 
 echo "${OUTPUT}" > AUTHORS
 
-echo "${GREEN}INFO:${RESET} ..Complete."
+echo -e "${GREEN}INFO:${RESET} ..Complete."
 
 exit

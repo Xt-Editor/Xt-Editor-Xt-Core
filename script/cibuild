@@ -6,12 +6,10 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Run the `check` Makefile target
-echo "${GREEN}INFO:${RESET} Building project.."
-
+echo -e "${GREEN}INFO:${RESET} Building project.."
 cargo build --verbose
 
-echo "${GREEN}INFO:${RESET} Testing project.."
-
+echo -e "${GREEN}INFO:${RESET} Testing project.."
 cargo test --verbose
 
 exit
