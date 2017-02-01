@@ -1,9 +1,14 @@
-defaultTasks 'build'
+defaultTasks 'all'
+
+project.ext {
+  version = '0.1.0'
+  targetDir = './target'
+}
 
 task clean(type: Delete) {
-  println('Cleaning up..')
+  logger.info('Cleaning up..')
   
-  delete './target'
+  delete(project.targetDir)
 
   doLast {
     println("Flushed away old files..")
@@ -11,25 +16,32 @@ task clean(type: Delete) {
 }
 
 task bench(type: Exec) {
-  println("Running Cargo benchmarks..")
+  mustRunAfter("test")
+  logger.info("Running Cargo benchmarks..")
   
   commandLine('cargo', 'bench')
 }
 
 task build(type: Exec) {
-  println('Building with Cargo...')
+  logger.info('Building with Cargo...')
 
   commandLine('cargo', 'build')
 }
 
 task test(type: Exec) {
-  println('Testing with Cargo...')
+  mustRunAfter("build")
+  logger.info('Testing with Cargo...')
 
   commandLine('cargo', 'test')
 }
 
 task doc(type: Exec) {
-  println("Generating documentation..")
+  mustRunAfter("bench")
+  logger.info("Generating documentation..")
 
   commandLine('cargo', 'doc')
+}
+
+task all {
+  dependsOn build
 }
