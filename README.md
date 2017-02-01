@@ -18,7 +18,7 @@ text editing. I felt a new contender was necessary that took
 inspiration from everything else, and turned them into a versatile
 idea.
 
-(Xtensis was previously known as Slacs. It was changed to prevent
+(Side note: Xtensis was previously known as Slacs. It was changed to prevent
 ambiguity with Slack.)
 
 Xtensis is currently being rewritten to be faster, more stable, and to
@@ -91,6 +91,7 @@ I have several sources of ongoing inspiration for xtensis:
 - [Neovim][neovim]
 - [GNU Emacs][emacs]
 - [iota][iota]
+- [swiboe][swiboe]
 
 [travis-ci-status]: https://img.shields.io/travis/xtensis-editor/xtensis.svg
 [travis-ci]: https://travis-ci.org/xtensis-editor/xtensis-core
