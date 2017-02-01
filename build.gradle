@@ -17,3 +17,11 @@ task buildXtensis(type: Exec) {
 
   println('Built!')
 }
+
+task testXtensis(type: Exec) {
+  println('Testing with Cargo...')
+
+  commandLine('cargo', 'test')
+
+  println('Tested!')
+}
