@@ -1,6 +1,6 @@
-defaultTasks 'buildXtensis'
+defaultTasks 'build'
 
-task cleanUp(type: Delete) {
+task clean(type: Delete) {
   println('Cleaning up..')
   
   delete './target'
@@ -10,18 +10,26 @@ task cleanUp(type: Delete) {
   }
 }
 
-task buildXtensis(type: Exec) {
+task bench(type: Exec) {
+  println("Running Cargo benchmarks..")
+  
+  commandLine('cargo', 'bench')
+}
+
+task build(type: Exec) {
   println('Building with Cargo...')
 
   commandLine('cargo', 'build')
-
-  println('Built!')
 }
 
-task testXtensis(type: Exec) {
+task test(type: Exec) {
   println('Testing with Cargo...')
 
   commandLine('cargo', 'test')
+}
 
-  println('Tested!')
+task doc(type: Exec) {
+  println("Generating documentation..")
+
+  commandLine('cargo', 'doc')
 }
