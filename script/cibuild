@@ -19,9 +19,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Run the `check` Makefile target
 echo -e "${GREEN}INFO:${RESET} Building project.."
-gradle build
+./gradlew build
 
 echo -e "${GREEN}INFO:${RESET} Testing project.."
-gradle test
+./gradlew test
 
 exit
