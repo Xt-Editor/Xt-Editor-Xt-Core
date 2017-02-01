@@ -7,7 +7,7 @@
 
 <h4 align="center">Extendable editing: ignore the rules.</h4>
 
-[![Build Status (Jenkins)][jenkins-ci-status]][jenkins-ci]
+[![Build Status][jenkins-ci-status]][jenkins-ci]
 
 # Xtensis
 
