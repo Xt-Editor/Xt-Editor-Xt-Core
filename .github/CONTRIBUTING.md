@@ -3,9 +3,9 @@
 (This is derived from Limetext's templates. Kudos to them.)
 
 1. The issues list is for development purposes only.
-   All issues reported in this repo should result in **code being
-   changed, added, or removed**.
- 
+   All issues reported in this repository should result in **code
+   being changed, added, or removed**.
+
 * Issues should be opened in the *correct* repository.
   Issue should only be reported here if they cover the `xtensis/core`
   project. Other issues that pertain to another aspect of the Xtensis
