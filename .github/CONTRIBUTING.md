@@ -26,7 +26,7 @@ Bugfix branches should be named according to this template:
 When committing to Xtensis, and its subprojects, **please** commit
 using the style advocated [here][beamsgit]. People who make commits
 that blindingly violate these principles will be asked politely to
-change the commit message, if possible. However, Exceptions can be
+change the commit message, if possible. However, exceptions can be
 made on a case-by-case basis.
 
 [beamsgit]: http://chris.beams.io/posts/git-commit/
