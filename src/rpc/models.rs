@@ -10,6 +10,7 @@ pub struct XtensisObject {
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct BufferObject {
     uuid: String,
+    file_path: String,
     active: bool,
     temporary: bool,
     major_mode: String,
