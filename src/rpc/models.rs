@@ -24,3 +24,17 @@ pub struct BufferResponse {
     xtensis: XtensisObject,
     buffer: BufferObject,
 }
+
+#[derive(Serialize, Deserialize, Debug, Default, Clone)]
+pub struct CommandObject {
+    uuid: String,
+    name: String,
+    docstring: String,
+    cmd_type: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, Default, Clone)]
+pub struct CommandResponse {
+    xtensis: XtensisObject,
+    command: CommandObject,
+}
