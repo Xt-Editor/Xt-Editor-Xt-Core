@@ -3,7 +3,8 @@
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct XtensisObject {
     version: String,
-    direction: i32,
+    direction: String,
+    comm_type: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
