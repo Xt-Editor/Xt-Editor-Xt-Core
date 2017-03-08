@@ -8,13 +8,20 @@ pub struct XtensisObject {
 }
 
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
+pub struct MinorModeObject {
+    id: String,
+    active: bool,
+    docstring: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct BufferObject {
     uuid: String,
     file_path: String,
     active: bool,
     temporary: bool,
     major_mode: String,
-    minor_modes: Vec<String>,
+    minor_modes: Vec<MinorModeObject>,
     read_only: bool,
     dirty: bool,
 }
