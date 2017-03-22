@@ -9,7 +9,7 @@
 
 [![Build Status][jenkins-ci-status]][jenkins-ci]
 
-# Xtensis
+# xtensis-core
 
 ## History
 
@@ -75,6 +75,12 @@ See [here][GPL-3] for the included license file,
 
 Please see [this][contributing] document for more information about
 contributing to Xtensis.
+
+## Community
+
+There is a IRC channel on Freenode (soon to (possibly) be moved to
+OFTC) for Xtensis: `#xtensis-editor` on Freenode. Feel free to pop in
+to discuss ideas. I am `shymega` on there.
 
 ## Credits
 
