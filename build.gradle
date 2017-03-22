@@ -16,13 +16,6 @@ task clean(type: Delete) {
   }
 }
 
-task bench(type: Exec) {
-  mustRunAfter("test")
-  logger.info("Running Cargo benchmarks..")
-  
-  commandLine('cargo', 'bench')
-}
-
 task build(type: Exec) {
   logger.info('Building with Cargo...')
 
@@ -30,19 +23,21 @@ task build(type: Exec) {
 }
 
 task test(type: Exec) {
-  mustRunAfter("build")
   logger.info('Testing with Cargo...')
 
   commandLine('cargo', 'test')
 }
 
-task doc(type: Exec) {
-  mustRunAfter("bench")
+task docs(type: Exec) {
   logger.info("Generating documentation..")
 
   commandLine('cargo', 'doc')
+
+  workingDir './doc/sphinx'
+  commandLine('make', 'html')
+  commandLine('make', 'info')
 }
 
-task all {
-  dependsOn build
+task all(dependsOn: [build, test, docs]) {
+  println("Running ALL tasks for Xtensis..")
 }

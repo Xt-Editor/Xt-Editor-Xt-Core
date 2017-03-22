@@ -17,11 +17,10 @@ set -eu
 export PATH="$WORK_DIR/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Run the `check` Makefile target
 echo -e "${GREEN}INFO:${RESET} Building project.."
-./gradlew build
+./gradlew :build
 
 echo -e "${GREEN}INFO:${RESET} Testing project.."
-./gradlew test
+./gradlew :test
 
 exit
