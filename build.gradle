@@ -17,7 +17,8 @@ task clean(type: Delete) {
 }
 
 task build(type: Exec) {
-  logger.info('Building with Cargo...')
+  logger.info("Building Xtensis Core..")
+  logger.info("(This is a Debug build.)")
 
   commandLine('cargo', 'build')
 }
