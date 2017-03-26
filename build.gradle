@@ -3,7 +3,7 @@ defaultTasks 'all'
 project.ext {
   projName = "xtensis-core"
   version = '0.1.1'
-  targetDir = './target'
+  targetDir = 'target'
 }
 
 task clean(type: Delete) {
