@@ -46,6 +46,6 @@ task docs(type: Exec) {
   commandLine('make', 'info')
 }
 
-task all(dependsOn: [build, test, docs]) {
+task all(dependsOn: [build, build_rel, test, docs]) {
   println("Running ALL tasks for Xtensis..")
 }
