@@ -23,6 +23,13 @@ task build(type: Exec) {
   commandLine('cargo', 'build')
 }
 
+task build_rel(type: Exec) {
+  logger.info("Building Xtensis Core..")
+  logger.info("(This is a Release build.)")
+
+  commandLine('cargo', 'build', '--release')
+}
+
 task test(type: Exec) {
   logger.info('Testing with Cargo...')
 
