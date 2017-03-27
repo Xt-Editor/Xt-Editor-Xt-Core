@@ -1,13 +1,8 @@
 [clog]
-
 repository = "https://github.com/xtensis-editor/xtensis-core"
-
 subtitle = "Extensible editing: screw limits."
 
 link-style = "github"
-
 changelog = "CHANGELOG.md"
-
 output-format = "markdown"
-
 from-latest-tag = true
