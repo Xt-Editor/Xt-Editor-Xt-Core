@@ -11,19 +11,6 @@
 
 # xtensis-core
 
-## History
-
-I started work on Xtensis when I got tired of the current tooling for
-text editing. I felt a new contender was necessary that took
-inspiration from everything else, and turned them into a versatile
-idea.
-
-(Side note: Xtensis was previously known as Slacs. It was changed to prevent
-ambiguity with Slack.)
-
-Xtensis is currently being rewritten to be faster, more stable, and to
-be in line with Rust idioms.
-
 ## Core goals
 
 ### Extendable
