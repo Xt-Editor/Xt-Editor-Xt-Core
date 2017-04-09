@@ -10,7 +10,7 @@ repository = "https://github.com/xtensis-editor/xtensis-core.git"
 version = "0.1.0"
 
 [lib]
-name = "xtensis"
+name = "xtensis_core"
 path = "src/lib.rs"
 
 [[bin]]

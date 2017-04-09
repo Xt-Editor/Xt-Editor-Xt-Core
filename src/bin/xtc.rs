@@ -20,7 +20,7 @@
 // <http://www.gnu.org/licenses/>.
 
 extern crate clap;
-extern crate xtensis;
+extern crate xtensis_core as xtensis;
 
 #[macro_use]
 extern crate slog;
