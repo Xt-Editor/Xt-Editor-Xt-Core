@@ -21,7 +21,7 @@
 
 extern crate uuid;
 
-use uuid::Uuid;
+use self::uuid::Uuid;
 
 /// Return a UUID in a String format. This is used to identify
 /// buffers.
