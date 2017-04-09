@@ -54,5 +54,9 @@ fn main() {
 
     init_logger(cargs.clone());
 
+    if cargs.subcommand_matches("spawn").is_some() {
+        info!(logger(), "xtensis-core starting.. initialising ")
+    }
+
     println!("Hello, XTENSIS!");
 }
