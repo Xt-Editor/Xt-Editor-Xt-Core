@@ -32,19 +32,19 @@ use slog::Level;
 
 /// Initialise the logger.
 
-pub fn init_logger(matches: ArgMatches) {
-    let log_level = match matches.occurrences_of("verbose") {
-        0 => Level::Info,
-        1 => Level::Debug,
-        2 | _ => Level::Trace,
+pub fn init_logger(cargs: ArgMatches) {
+    let log_level = match cargs.occurrences_of("verbose") {
+        0 => Level::Warning,
+        1 => Level::Info,
+        2 => Level::Debug,
+        3 | _ => Level::Trace,
     };
 
     let streamer = slog_term::streamer().build().fuse();
     let drain = slog::level_filter(log_level, streamer);
     let root_log = slog::Logger::root(drain, o!("version" => get_version()));
 
-    slog_scope::set_global_logger(root_log);
+    slog_scope::set_global_logger(root_log.clone());
 
-    info!("Logging initialised";
-          "started_at" => format!("{}", time::now().rfc3339()));
+    info!(root_log, "Logging initialised");
 }

@@ -63,10 +63,10 @@ impl Buffer {
                                                      "buffer"));
 
         slog_scope::scope(buf_logger.clone(), || {
-            warn!("The buffer is being created!!");
+            warn!(buf_logger, "The buffer is being created!!");
         });
 
-        trace!("Initialising logger..");
+        trace!(buf_logger, "Initialising logger..");
         Buffer {
             buf_uuid: uuid::get_uuid_buffer(),
             file_path: None,
