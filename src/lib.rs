@@ -20,6 +20,11 @@
 // <http://www.gnu.org/licenses/>.
 
 #[macro_use]
+extern crate slog;
+extern crate slog_json;
+extern crate slog_scope;
+
+#[macro_use]
 extern crate serde_derive;
 
 extern crate serde_json;
