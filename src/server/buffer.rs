@@ -170,7 +170,7 @@ mod test {
         buf.minor_modes.push("complete-me-mode");
         buf.minor_modes.push("language-server-mode");
 
-        assert_eq!(2, buf.minor_modes.len());
-        assert_eq!("latex-mode", buf.major_mode);
+        assert_eq!(4, buf.minor_modes.len());
+        assert_eq!("rust-mode", buf.major_mode);
     }
 }
