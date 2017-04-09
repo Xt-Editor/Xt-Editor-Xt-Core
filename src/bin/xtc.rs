@@ -19,6 +19,40 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+extern crate clap;
+extern crate xtensis;
+
+#[macro_use]
+extern crate slog;
+extern crate slog_term;
+extern crate slog_scope;
+
+use slog_scope::logger;
+use clap::{App, Arg, ArgMatches, SubCommand};
+use xtensis::logging::init_logger;
+use xtensis::utils::get_version;
+
+fn retrieve_arguments() -> ArgMatches<'static> {
+    App::new("xtensis-core")
+        .version(get_version())
+        .author("Dom Rodriguez <shymega@shymega.org.uk>")
+        .about("Extensible editing: screw limits.")
+        .arg(Arg::with_name("verbose")
+            .short("v")
+            .multiple(true)
+            .required(false)
+            .help("Set the level of logging verbosity"))
+        .subcommand(SubCommand::with_name("spawn")
+            .about("Spawn a new instance of xtensis-core.")
+            .version(get_version())
+            .author("Dom Rodriguez <shymega@shymega.org.uk>"))
+        .get_matches()
+}
+
 fn main() {
+    let cargs = retrieve_arguments();
+
+    init_logger(cargs.clone());
+
     println!("Hello, XTENSIS!");
 }
