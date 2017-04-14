@@ -32,7 +32,7 @@ use slog::Level;
 
 /// Initialise the logger.
 
-pub fn init_logger(cargs: ArgMatches) {
+pub fn init_logger(cargs: ArgMatches) -> slog::Logger {
     let log_level = match cargs.occurrences_of("verbose") {
         0 => Level::Warning,
         1 => Level::Info,
@@ -44,7 +44,7 @@ pub fn init_logger(cargs: ArgMatches) {
     let drain = slog::level_filter(log_level, streamer);
     let root_log = slog::Logger::root(drain, o!("version" => get_version()));
 
-    slog_scope::set_global_logger(root_log.clone());
-
     info!(root_log, "Logging initialised");
+
+    return root_log;
 }

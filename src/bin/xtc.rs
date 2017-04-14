@@ -27,7 +27,6 @@ extern crate slog;
 extern crate slog_term;
 extern crate slog_scope;
 
-use slog_scope::logger;
 use clap::{App, Arg, ArgMatches, SubCommand};
 use xtensis::logging::init_logger;
 use xtensis::utils::get_version;
@@ -52,11 +51,11 @@ fn retrieve_arguments() -> ArgMatches<'static> {
 fn main() {
     let cargs = retrieve_arguments();
 
-    init_logger(cargs.clone());
+    let logger = init_logger(cargs.clone());
 
     if cargs.subcommand_matches("spawn").is_some() {
-        info!(logger(), "xtensis-core starting.. initialising ")
+        info!(logger, "xtensis-core starting.. initialising ")
     }
 
-    println!("Hello, XTENSIS!");
+    error!(logger, "This program is unable to start right now.");
 }
