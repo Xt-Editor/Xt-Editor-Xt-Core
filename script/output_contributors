@@ -9,4 +9,7 @@ git shortlog -sne > AUTHORS
 
 echo -e "${GREEN}INFO:${RESET} ..Complete."
 
+git add AUTHORS
+git commit -m "Update AUTHORS file"
+
 exit
