@@ -25,7 +25,8 @@ extern crate slog_scope;
 use std::path::PathBuf;
 
 use server::gapbuffer::GapBuffer;
-use utils::uuid;
+use utils::types::BufferID;
+use utils::uuid::get_uuid_buffer;
 use slog::Logger;
 
 /// Struct for a Buffer in Xtensis
@@ -33,7 +34,7 @@ use slog::Logger;
 #[derive(Debug)]
 pub struct Buffer {
     /// UUID of a buffer.
-    pub buf_uuid: String,
+    pub buffer_uuid: BufferID,
     /// File path of a buffer.
     pub file_path: Option<PathBuf>,
     /// Active status of a buffer.
@@ -58,7 +59,7 @@ impl Buffer {
     /// Return a new instance of `Buffer`.
     pub fn new() -> Buffer {
         Buffer {
-            buf_uuid: uuid::get_uuid_buffer(),
+            buffer_uuid: get_uuid_buffer(),
             file_path: None,
             active: false,
             temporary: false,
