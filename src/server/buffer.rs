@@ -52,21 +52,11 @@ pub struct Buffer {
     pub dirty: bool,
     /// Contents of a buffer.
     pub text: GapBuffer<u8>,
-    /// Logger of a buffer.
-    pub logger: Logger,
 }
 
 impl Buffer {
     /// Return a new instance of `Buffer`.
     pub fn new() -> Buffer {
-        let buf_logger = slog_scope::logger().new(o!("module" =>
-                                                     "buffer"));
-
-        slog_scope::scope(buf_logger.clone(), || {
-            warn!(buf_logger, "The buffer is being created!!");
-        });
-
-        trace!(buf_logger, "Initialising logger..");
         Buffer {
             buf_uuid: uuid::get_uuid_buffer(),
             file_path: None,
@@ -77,7 +67,6 @@ impl Buffer {
             minor_modes: Vec::new(),
             dirty: false,
             text: GapBuffer::new(),
-            logger: buf_logger,
         }
     }
 
