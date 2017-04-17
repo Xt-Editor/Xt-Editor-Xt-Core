@@ -20,4 +20,4 @@
 // <http://www.gnu.org/licenses/>.
 
 /// ID of a Buffer.
-pub type BufferID = usize;
+pub type BufferID = String,
