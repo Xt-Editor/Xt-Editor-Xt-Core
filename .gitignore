@@ -2,3 +2,5 @@ target
 .gradle
 
 doc/sphinx/build/
+
+*.png
