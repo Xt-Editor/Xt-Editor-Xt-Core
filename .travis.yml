@@ -30,13 +30,13 @@ addons:
 
 notifications:
   email:
-    on_success: never
+    on_success: always
     on_failure: always
   irc:
     channels:
       - "chat.freenode.net#xtensis-editor"
-    nick: xtensis-travis
-    on_success: never
+    nick: xtensis-ci
+    on_success: always
     on_failure: always
     use_notice: true
     skip_join: false
