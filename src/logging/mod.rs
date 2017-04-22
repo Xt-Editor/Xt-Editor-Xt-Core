@@ -35,7 +35,12 @@ pub fn init_logger() -> Logger {
     let drain = slog_term::FullFormat::new(decorator).build().fuse();
     let drain = slog_async::Async::new(drain).build().fuse();
 
-    slog::Logger::root(drain,
-                       o!("version" => get_version(),
-                          "app" => get_pkg_name()))
+    let root_logger = slog::Logger::root(drain,
+                                         o!("version" => get_version(),
+                                            "app" => get_pkg_name()));
+
+
+    debug!(root_logger, "Logger initialised.");
+
+    return root_logger;
 }
