@@ -20,14 +20,12 @@
 // <http://www.gnu.org/licenses/>.
 
 extern crate slog;
-extern crate slog_scope;
 
 use std::path::PathBuf;
 
 use server::gapbuffer::GapBuffer;
 use utils::types::BufferID;
 use utils::uuid::get_uuid_buffer;
-use slog::Logger;
 
 /// Struct for a Buffer in Xtensis
 /// This stores metadata about a buffer.

@@ -22,11 +22,10 @@
 #[macro_use]
 extern crate slog;
 extern crate slog_json;
-extern crate slog_scope;
+extern crate slog_async;
 
 #[macro_use]
 extern crate serde_derive;
-
 extern crate serde_json;
 
 pub mod logging;

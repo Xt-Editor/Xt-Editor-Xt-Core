@@ -1,50 +1,41 @@
-//! This is the logging module for Xtensis.
+//! this is the logging module for xtensis.
 
-// This file is part of Xtensis.
+// this file is part of xtensis.
 
-// This is the Xtensis text editor; it edits text.
-// Copyright (C) 2016-2017  The Xtensis Developers
+// this is the xtensis text editor; it edits text.
+// copyright (c) 2016-2017  the xtensis developers
 
-// This program is free software: you can redistribute it and/or
-// modify it under the terms of the GNU General Public License as
-// published by the Free Software Foundation, either version 3 of the
-// License, or (at your option) any later version.
+// this program is free software: you can redistribute it and/or
+// modify it under the terms of the gnu general public license as
+// published by the free software foundation, either version 3 of the
+// license, or (at your option) any later version.
 
-// This program is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// General Public License for more details.
+// this program is distributed in the hope that it will be useful, but
+// without any warranty; without even the implied warranty of
+// merchantability or fitness for a particular purpose.  see the gnu
+// general public license for more details.
 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see
+// you should have received a copy of the gnu general public license
+// along with this program.  if not, see
 // <http://www.gnu.org/licenses/>.
 
 extern crate time;
 extern crate slog;
 extern crate slog_term;
-extern crate slog_scope;
-extern crate clap;
+extern crate slog_async;
 
-use slog::DrainExt;
-use utils::get_version;
-use self::clap::ArgMatches;
-use slog::Level;
+use slog::Drain;
+use slog::Logger;
 
-/// Initialise the logger.
+use utils::{get_pkg_name, get_version};
 
-pub fn init_logger(cargs: ArgMatches) -> slog::Logger {
-    let log_level = match cargs.occurrences_of("verbose") {
-        0 => Level::Warning,
-        1 => Level::Info,
-        2 => Level::Debug,
-        3 | _ => Level::Trace,
-    };
+/// initialise the logger.
+pub fn init_logger() -> Logger {
+    let decorator = slog_term::TermDecorator::new().build();
+    let drain = slog_term::FullFormat::new(decorator).build().fuse();
+    let drain = slog_async::Async::new(drain).build().fuse();
 
-    let streamer = slog_term::streamer().build().fuse();
-    let drain = slog::level_filter(log_level, streamer);
-    let root_log = slog::Logger::root(drain, o!("version" => get_version()));
-
-    info!(root_log, "Logging initialised");
-
-    return root_log;
+    slog::Logger::root(drain,
+                       o!("version" => get_version(),
+                          "app" => get_pkg_name()))
 }

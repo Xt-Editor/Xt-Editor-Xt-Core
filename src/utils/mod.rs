@@ -29,3 +29,8 @@ pub mod uuid;
 pub fn get_version() -> &'static str {
     env!("CARGO_PKG_VERSION")
 }
+
+/// Return name of Xtensis. (Duh!)
+pub fn get_pkg_name() -> &'static str {
+    env!("CARGO_PKG_NAME")
+}
