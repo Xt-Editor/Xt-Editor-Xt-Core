@@ -50,11 +50,11 @@ fn retrieve_arguments() -> ArgMatches<'static> {
 fn main() {
     let cargs = retrieve_arguments();
 
-    let logger = init_logger();
+    let log = init_logger();
 
     if cargs.subcommand_matches("spawn").is_some() {
-        info!(logger, "xtensis-core starting.. initialising ")
+        info!(log, "xtensis-core starting.. initialising ");
     }
 
-    error!(logger, "This program is unable to start right now.");
+    error!(log, "This program is unable to start right now.");
 }
