@@ -19,6 +19,7 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+/// JSON bject for Xtensis RPC responses.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct XtensisObject {
     version: String,
@@ -26,6 +27,7 @@ pub struct XtensisObject {
     comm_type: String,
 }
 
+/// JSON object for Minor modes.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct MinorModeObject {
     id: String,
@@ -33,6 +35,7 @@ pub struct MinorModeObject {
     docstring: String,
 }
 
+/// JSON object for Buffer.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct BufferObject {
     uuid: String,
@@ -45,12 +48,14 @@ pub struct BufferObject {
     dirty: bool,
 }
 
+/// Buffer request response.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct BufferResponse {
     xtensis: XtensisObject,
     buffer: BufferObject,
 }
 
+/// Command Object in JSON.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct CommandObject {
     uuid: String,
@@ -59,6 +64,7 @@ pub struct CommandObject {
     cmd_type: String,
 }
 
+/// Command response in JSON.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct CommandResponse {
     xtensis: XtensisObject,

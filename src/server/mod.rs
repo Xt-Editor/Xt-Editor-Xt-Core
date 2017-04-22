@@ -1,3 +1,5 @@
+//! This is the Server module for Xtensis.
+
 // This file is part of Xtensis.
 
 // This is the Xtensis text editor; it edits text.

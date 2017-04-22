@@ -19,6 +19,7 @@ path = "src/bin/xtc.rs"
 
 [features]
 default= []
+ci = ["clippy"]
 
 [dependencies]
 gapbuffer= "0.1.1"
