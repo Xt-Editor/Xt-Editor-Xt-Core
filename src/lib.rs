@@ -19,6 +19,14 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+#![cfg_attr(feature="clippy", feature(plugin))]
+#![cfg_attr(feature="clippy", plugin(clippy))]
+
+#![deny(missing_docs, missing_debug_implementations,
+        missing_copy_implementations, trivial_casts,
+        trivial_numeric_casts, unused_import_braces,
+        unused_qualifications, clippy)]
+
 #[macro_use]
 extern crate slog;
 extern crate slog_json;
