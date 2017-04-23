@@ -51,6 +51,8 @@ pub struct Buffer {
     pub dirty: bool,
     /// Contents of a buffer.
     pub text: GapBuffer<u8>,
+    /// Logger instance.
+    pub logger: slog::Logger,
 }
 
 impl Buffer {
@@ -70,6 +72,7 @@ impl Buffer {
             minor_modes: Vec::new(),
             dirty: false,
             text: GapBuffer::new(),
+            logger: logger,
         }
     }
 
