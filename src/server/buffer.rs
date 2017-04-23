@@ -21,9 +21,9 @@
 
 extern crate slog;
 
-use std::path::PathBuf;
-
+use logging::init_logger;
 use server::gapbuffer::GapBuffer;
+use std::path::PathBuf;
 use utils::types::BufferID;
 use utils::uuid::get_uuid_buffer;
 
@@ -56,8 +56,12 @@ pub struct Buffer {
 impl Buffer {
     /// Return a new instance of `Buffer`.
     pub fn new() -> Buffer {
+        let buffer_uuid = get_uuid_buffer();
+
+        let logger = init_logger().new(o!("buffer_uuid" =>
+                                          buffer_uuid.clone()));
         Buffer {
-            buffer_uuid: get_uuid_buffer(),
+            buffer_uuid: buffer_uuid,
             file_path: None,
             active: false,
             temporary: false,
