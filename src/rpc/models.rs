@@ -1,9 +1,9 @@
 //! Models for JSONI (JSON Interface)
 
-// This file is part of Xtensis.
+// This file is part of Xt.
 
-// This is the Xtensis text editor; it edits text.
-// Copyright (C) 2016-2017  The Xtensis Developers
+// This is the Xt text editor; it edits text.
+// Copyright (C) 2016-2017  The Xt Developers
 
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -19,9 +19,9 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// JSON bject for Xtensis RPC responses.
+/// JSON bject for Xt RPC responses.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
-pub struct XtensisObject {
+pub struct XtObject {
     version: String,
     direction: String,
     comm_type: String,
@@ -51,7 +51,7 @@ pub struct BufferObject {
 /// Buffer request response.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct BufferResponse {
-    xtensis: XtensisObject,
+    Xt: XtObject,
     buffer: BufferObject,
 }
 
@@ -67,6 +67,6 @@ pub struct CommandObject {
 /// Command response in JSON.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct CommandResponse {
-    xtensis: XtensisObject,
+    Xt: XtObject,
     command: CommandObject,
 }

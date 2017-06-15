@@ -1,4 +1,4 @@
-# xtensis
+# Xt
 
 ## Goals
 
@@ -9,10 +9,10 @@
 ## Key features
 
 - Package/plugin support.
-  - JSON-API interface to `xtensis/core`
+  - JSON-API interface to `Xt/core`
 
 - Encourage customisation.
-  xtensis should encourage customisation of the core, plugins and
+  Xt should encourage customisation of the core, plugins and
   other components.
 
 - Provide a set of defaults.
@@ -47,7 +47,7 @@
     modify behaviour in each major-mode (buffer-local basis) - this
     could be 'hard wrapping', syntax checking or spell checking.
 
-    It is my intention to base xtensis upon this model of major and minor
+    It is my intention to base Xt upon this model of major and minor
     modes, and use that to the highest advantage available.
 
 ### Optional client/server architecture
@@ -81,32 +81,32 @@ The frontend will bootstrap itself on launch (this should be quick!!)
 , and if there's no server available, launch, wait for a `READY`
 signal, and then start the frontend.
 
-xtensis-core should have API's to deal with everyday tasks.
+Xt-core should have API's to deal with everyday tasks.
 
 ## Addons
 
 ## Permission model
 
 Like the Android's permissions model, I have been toying with the idea
-of permissions for xtensis.
+of permissions for Xt.
 
 The permissions model would be along the lines of this:
 
 (This is *not* a definitive list yet)
 
-- `xtensis.permissions.buffers.read_buffer`
+- `Xt.permissions.buffers.read_buffer`
   Arguments: `buffer_id`
 
    This permission grants access to read a buffer's contents.
    At the time of writing, this does *not* grant read access on a
    per-line basis, but that would be something to look into in future.
 
-- `xtensis.permissions.buffers.line_range_read`
+- `Xt.permissions.buffers.line_range_read`
   Arguments: `line_begin`, `line_end`
   
   This would allow 'ranges' of lines to be read by the text editor.
 
-- `xtensis.permissions.buffers.edit_buffer`
+- `Xt.permissions.buffers.edit_buffer`
   Arguments: `buffer_id`
 
   This permission grants access to edit a buffer's contents.
@@ -114,7 +114,7 @@ The permissions model would be along the lines of this:
   This gives all-area write access to the buffer, and does not
   restrict on a per-line basis.
 
-- `xtensis.permissions.modes.minor_hook.add`
+- `Xt.permissions.modes.minor_hook.add`
   Arguments: `buffer_id`, `hook_id`
 
   This permission grants access for a plugin to hook into a major
@@ -125,5 +125,5 @@ The permissions model would be along the lines of this:
   overridden.
 
 To the best of my knowledge, *no* other editor supports a permissions
-model, and thus, `xtensis` would be the first editor of its kind to
+model, and thus, `Xt` would be the first editor of its kind to
 *ever* implement permissions.

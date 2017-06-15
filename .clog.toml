@@ -1,5 +1,5 @@
 [clog]
-repository = "https://github.com/xtensis-editor/xtensis-core"
+repository = "https://github.com/xt-editor/xt-core"
 subtitle = "Extensible editing: screw limits."
 
 link-style = "github"

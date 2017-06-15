@@ -1,9 +1,9 @@
 //! Conversion module for JSONI.
 
-// This file is part of Xtensis.
+// This file is part of Xt.
 
-// This is the Xtensis text editor; it edits text.
-// Copyright (C) 2016-2017  The Xtensis Developers
+// This is the Xt text editor; it edits text.
+// Copyright (C) 2016-2017  The Xt Developers
 
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as

@@ -1,9 +1,9 @@
-//! This module serves as the entry point into Xtensis's main binary.
+//! This module serves as the entry point into Xt's main binary.
 
-// This file is part of Xtensis.
+// This file is part of Xt.
 
-// This is the Xtensis text editor; it edits text.
-// Copyright (C) 2016-2017  The Xtensis Developers
+// This is the Xt text editor; it edits text.
+// Copyright (C) 2016-2017  The Xt Developers
 
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -20,18 +20,18 @@
 // <http://www.gnu.org/licenses/>.
 
 extern crate clap;
-extern crate xtensis_core as xtensis;
+extern crate xt_core as xt;
 
 #[macro_use]
 extern crate slog;
 extern crate slog_term;
 
 use clap::{App, Arg, ArgMatches, SubCommand};
-use xtensis::logging::init_logger;
-use xtensis::utils::get_version;
+use xt::logging::init_logger;
+use xt::utils::get_version;
 
 fn retrieve_arguments() -> ArgMatches<'static> {
-    App::new("xtensis-core")
+    App::new("xt-core")
         .version(get_version())
         .author("Dom Rodriguez <shymega@shymega.org.uk>")
         .about("Extensible editing: screw limits.")
@@ -41,7 +41,7 @@ fn retrieve_arguments() -> ArgMatches<'static> {
                  .required(false)
                  .help("Set the level of logging verbosity"))
         .subcommand(SubCommand::with_name("spawn")
-                        .about("Spawn a new instance of xtensis-core.")
+                        .about("Spawn a new instance of xt-core.")
                         .version(get_version())
                         .author("Dom Rodriguez <shymega@shymega.org.uk>"))
         .get_matches()
@@ -53,7 +53,7 @@ fn main() {
     let log = init_logger();
 
     if cargs.subcommand_matches("spawn").is_some() {
-        info!(log, "xtensis-core starting.. initialising ");
+        info!(log, "xt-core starting.. initialising ");
     }
 
     error!(log, "This program is unable to start right now.");

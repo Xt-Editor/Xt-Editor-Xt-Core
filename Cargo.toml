@@ -1,16 +1,16 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
 description = "Extendable editing: ignore the rules."
-homepage = "https://github.com/xtensis-editor/xtensis-core"
+homepage = "https://github.com/xt-editor/xt-core"
 keywords = ["editor", "framework", "text"]
 license = "GPL-3.0"
-name = "xtensis-core"
+name = "xt-core"
 readme = "README.md"
-repository = "https://github.com/xtensis-editor/xtensis-core.git"
+repository = "https://github.com/xt-editor/xt-core.git"
 version = "0.1.0"
 
 [lib]
-name = "xtensis_core"
+name = "xt_core"
 path = "src/lib.rs"
 
 [[bin]]

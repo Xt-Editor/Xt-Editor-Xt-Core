@@ -1,17 +1,17 @@
 digraph coresubsys {
     node[shape=box];
 
-    xtc [label="xtensis-core"];
-    xtcapi [label="XTC_API\n\nJSON-RPC API for Xtensis Core."]
-    frontend [label="xtensis-frontend-sys"];
-    qt_frontend [label="xtensis-frontend-qt5"];
-    tui_frontend [label="xtensis-frontend-tui"];
-    cli_frontend [label="xtensis-frontend-cli"]
-    gtk_frontend [label="xtensis-frontend-gtk3"];
-    plugins [label="xtensis-plugin-sys"];
-    text_editing [label="xtensis-module-text-editing"];
-    completion [label="xtensis-plugin-completion"];
-    modules [label="xtensis-module-sys"]
+    xtc [label="xt-core"];
+    xtcapi [label="XTC_API\n\nJSON-RPC API for xt Core."]
+    frontend [label="xt-frontend-sys"];
+    qt_frontend [label="xt-frontend-qt5"];
+    tui_frontend [label="xt-frontend-tui"];
+    cli_frontend [label="xt-frontend-cli"]
+    gtk_frontend [label="xt-frontend-gtk3"];
+    plugins [label="xt-plugin-sys"];
+    text_editing [label="xt-module-text-editing"];
+    completion [label="xt-plugin-completion"];
+    modules [label="xt-module-sys"]
 
     xtc->xtcapi [dir="both"];
 

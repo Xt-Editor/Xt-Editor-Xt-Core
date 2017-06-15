@@ -34,9 +34,9 @@ notifications:
     on_failure: always
   irc:
     channels:
-      - "chat.freenode.net#xtensis-editor"
-    nick: xtensis-ci
-    on_success: always
+      - "irc.mozila.org#xt"
+    nick: xtensis-trv
+    on_success: change
     on_failure: always
     use_notice: true
     skip_join: false

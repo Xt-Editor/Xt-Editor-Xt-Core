@@ -1,9 +1,9 @@
-//! This is the utilities module for Xtensis.
+//! This is the utilities module for Xt.
 
-// This file is part of Xtensis.
+// This file is part of Xt.
 
-// This is the Xtensis text editor; it edits text.
-// Copyright (C) 2016-2017  The Xtensis Developers
+// This is the Xt text editor; it edits text.
+// Copyright (C) 2016-2017  The Xt Developers
 
 // This program is free software: you can redistribute it and/or
 // modify it under the terms of the GNU General Public License as
@@ -25,12 +25,12 @@ pub mod types;
 /// UUID module.
 pub mod uuid;
 
-/// Return version of Xtensis.
+/// Return version of Xt.
 pub fn get_version() -> &'static str {
     env!("CARGO_PKG_VERSION")
 }
 
-/// Return name of Xtensis. (Duh!)
+/// Return name of Xt. (Duh!)
 pub fn get_pkg_name() -> &'static str {
     env!("CARGO_PKG_NAME")
 }

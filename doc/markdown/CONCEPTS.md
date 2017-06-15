@@ -1,11 +1,11 @@
-# Concepts and terminology of xtensis
+# Concepts and terminology of Xt
 
 ## Background
 
 This document serves as a guide for the concepts & terminology of the
-Xtensis project.
+Xt project.
 
-## `xtensis/core`
+## `Xt/core`
 
 ### Buffers
 
@@ -33,5 +33,5 @@ for nitty-gritty stuff, and should not used on a day-to-day basis.
 
 A window is a view *into* a buffer.
 
-It can be used from different 'viewports' of xtensis (We'll come to
+It can be used from different 'viewports' of Xt (We'll come to
 that.), and split multiple times.
