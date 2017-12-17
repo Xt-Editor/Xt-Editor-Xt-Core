@@ -1,4 +1,5 @@
 #!/bin/sh -eu
 
-GREEN='\e[0;32m'
+RED='\e[0;31m'
+GREEN='\e[;32m'
 RESET='\e[0m'
