@@ -19,7 +19,7 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// JSON bject for Xt RPC responses.
+/// JSON object for Xt RPC responses.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct XtObject {
     version: String,
@@ -51,7 +51,7 @@ pub struct BufferObject {
 /// Buffer request response.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct BufferResponse {
-    Xt: XtObject,
+    xt: XtObject,
     buffer: BufferObject,
 }
 
@@ -67,6 +67,6 @@ pub struct CommandObject {
 /// Command response in JSON.
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 pub struct CommandResponse {
-    Xt: XtObject,
+    xt: XtObject,
     command: CommandObject,
 }

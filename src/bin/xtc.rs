@@ -34,16 +34,14 @@ fn retrieve_arguments() -> ArgMatches<'static> {
     App::new("xt-core")
         .version(get_version())
         .author("Dom Rodriguez <shymega@shymega.org.uk>")
-        .about("Extensible editing: screw limits.")
-        .arg(Arg::with_name("verbose")
-                 .short("v")
-                 .multiple(true)
-                 .required(false)
-                 .help("Set the level of logging verbosity"))
-        .subcommand(SubCommand::with_name("spawn")
-                        .about("Spawn a new instance of xt-core.")
-                        .version(get_version())
-                        .author("Dom Rodriguez <shymega@shymega.org.uk>"))
+        .about("Core backend for Xt.")
+        .arg(
+            Arg::with_name("verbose")
+                .short("v")
+                .multiple(true)
+                .required(false)
+                .help("Set the level of logging verbosity"),
+        )
         .get_matches()
 }
 
@@ -51,10 +49,6 @@ fn main() {
     let cargs = retrieve_arguments();
 
     let log = init_logger();
-
-    if cargs.subcommand_matches("spawn").is_some() {
-        info!(log, "xt-core starting.. initialising ");
-    }
 
     error!(log, "This program is unable to start right now.");
 }

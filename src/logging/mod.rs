@@ -36,9 +36,11 @@ pub fn init_logger() -> Logger {
     let drain = FullFormat::new(decorator).build().fuse();
     let drain = Async::new(drain).build().fuse();
 
-    let root_logger = Logger::root(drain,
-                                   o!("version" => get_version(),
-                                      "app" => get_pkg_name()));
+    let root_logger = Logger::root(
+        drain,
+        o!("version" => get_version(),
+           "app" => get_pkg_name()),
+    );
 
     trace!(root_logger, "Logger initialised.");
 
