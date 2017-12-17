@@ -3,11 +3,13 @@ digraph coresubsys {
 
     xtc [label="xt-core"];
     xtcapi [label="XTC_API\n\nJSON-RPC API for xt Core."]
+
     frontend [label="xt-frontend-sys"];
     qt_frontend [label="xt-frontend-qt5"];
     tui_frontend [label="xt-frontend-tui"];
     cli_frontend [label="xt-frontend-cli"]
     gtk_frontend [label="xt-frontend-gtk3"];
+
     plugins [label="xt-plugin-sys"];
     text_editing [label="xt-module-text-editing"];
     completion [label="xt-plugin-completion"];
@@ -24,4 +26,3 @@ digraph coresubsys {
     xtcapi->modules [dir="both"];
     modules->text_editing [dir="both"];
 }
-
