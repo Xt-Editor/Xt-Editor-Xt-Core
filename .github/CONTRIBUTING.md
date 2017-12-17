@@ -1,4 +1,4 @@
-# Hacking on xtensis
+# Hacking on Xt
 
 (This is derived from Limetext's templates. Kudos to them.)
 
@@ -7,8 +7,8 @@
    being changed, added, or removed**.
 
 * Issues should be opened in the *correct* repository.
-  Issue should only be reported here if they cover the `xtensis/core`
-  project. Other issues that pertain to another aspect of the Xtensis
+  Issue should only be reported here if they cover the `xt/core`
+  project. Other issues that pertain to another aspect of the Xt
   project should be reported in that repository.
 
 ## Code contributions
@@ -23,7 +23,7 @@ Bugfix branches should be named according to this template:
 
 ### Commit messages
 
-When committing to Xtensis, and its subprojects, **please** commit
+When committing to Xt, and its subprojects, **please** commit
 using the style advocated [here][beamsgit]. People who make commits
 that blindingly violate these principles will be asked politely to
 change the commit message, if possible. However, exceptions can be

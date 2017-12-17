@@ -34,8 +34,8 @@ notifications:
     on_failure: always
   irc:
     channels:
-      - "irc.mozila.org#xt"
-    nick: xtensis-trv
+      - "irc.mozila.org#xt-editor"
+    nick: xt-travis
     on_success: change
     on_failure: always
     use_notice: true

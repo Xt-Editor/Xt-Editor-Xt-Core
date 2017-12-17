@@ -3,7 +3,7 @@
 ##### Disclaimer
 
 - [ ] I have read the guidelines for contributing, as linked to above.
-- [ ] This issue report *is* related to the `xtensis/core` project,
+- [ ] This issue report *is* related to the `xt/core` project,
   and would *not* belong better in a more specific & relevant
   repository.
 - [ ] I have checked for duplicate issue reports.
@@ -17,4 +17,4 @@ You should include information such as:
 - Processor architecture
 - Steps to reproduce the problem
 - Steps you may have taken to debug the problem
-- Version of xtensis (if from Git, use the commit hash)
+- Version of t (if from Git, use the commit hash)
