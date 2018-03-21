@@ -22,8 +22,6 @@
 #![cfg_attr(feature = "ci", feature(plugin))]
 #![cfg_attr(feature = "ci", plugin(clippy))]
 #![cfg_attr(feature = "ci", allow(unstable_features))]
-#![cfg_attr(feature = "ci", deny(clippy))]
-
 #![deny(missing_docs, missing_debug_implementations,
         missing_copy_implementations, trivial_casts,
         trivial_numeric_casts, unused_import_braces,
