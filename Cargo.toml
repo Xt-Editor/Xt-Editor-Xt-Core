@@ -23,24 +23,32 @@ ci = ["clippy"]
 
 [dependencies]
 gapbuffer= "0.1.1"
-log = "0.3.7"
-serde = "1.0.0"
-serde_json = "1.0.0"
-serde_derive = "1.0.0"
-slog = "2.0.0-3"
-slog-json = "~2.0.0-4"
-slog-term = "~2.0.0-4"
-slog-async = "*"
-time = "0.1.36"
+log = "0.4.1"
+rmp = "0.8.7"
+rmp-serde = "0.13.7"
+serde = "1.0.33"
+serde_derive = "1.0.33"
+serde_json = "1.0.12"
+slog-async = "2.2.0"
+slog-json = "2.2.0"
+slog-term = "2.3.0"
+toml = "0.4.5"
 
 [dependencies.clippy]
-version = "0.0.125"
+version = "0.0.189"
 optional = true
 
 [dependencies.uuid]
-version = "0.5.0"
+version = "0.6.2"
 features = ["v4"]
 
 [dependencies.clap]
-version = "2.23.3"
+version = "2.31.2"
 features = ["suggestions", "color", "wrap_help"]
+
+[dependencies.slog]
+version = "2.1.1"
+
+[profile.release]
+lto = true
+panic = 'abort'
