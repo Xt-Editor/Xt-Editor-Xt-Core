@@ -19,15 +19,13 @@
 // along with this program.  if not, see
 // <http://www.gnu.org/licenses/>.
 
-extern crate time;
 extern crate slog;
-extern crate slog_term;
 extern crate slog_async;
+extern crate slog_term;
 
-use self::slog_term::{TermDecorator, FullFormat};
 use slog::{Drain, Logger};
 use slog_async::Async;
-
+use slog_term::{FullFormat, TermDecorator};
 use utils::{get_pkg_name, get_version};
 
 /// Initialise the logger.
@@ -36,13 +34,10 @@ pub fn init_logger() -> Logger {
     let drain = FullFormat::new(decorator).build().fuse();
     let drain = Async::new(drain).build().fuse();
 
-    let root_logger = Logger::root(
+    Logger::root(
         drain,
-        o!("version" => get_version(),
-           "app" => get_pkg_name()),
-    );
-
-    trace!(root_logger, "Logger initialised.");
-
-    return root_logger;
+        o!(
+            "version" => get_version(),
+            "app" => get_pkg_name()),
+    )
 }
