@@ -13,7 +13,7 @@ fi
 
 set -eu
 
-pip install --user sphinx sphinx-autobuild
+# pip install --user sphinx sphinx-autobuild
 
 git submodule update --init --recursive
 
