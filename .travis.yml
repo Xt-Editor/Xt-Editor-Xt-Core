@@ -6,7 +6,7 @@ cache:
 
 install:
   - "script/bootstrap"
-  
+
 script:
   - "script/cibuild"
 
@@ -36,7 +36,7 @@ notifications:
     channels:
       - "irc.mozila.org#xt-editor"
     nick: xt-travis
-    on_success: change
+    on_success: always
     on_failure: always
     use_notice: true
     skip_join: false
