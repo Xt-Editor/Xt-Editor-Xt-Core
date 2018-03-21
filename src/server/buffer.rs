@@ -19,20 +19,15 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-extern crate slog;
+extern crate gapbuffer;
 
-use logging::init_logger;
-use server::gapbuffer::GapBuffer;
+use self::gapbuffer::GapBuffer;
 use std::path::PathBuf;
-use utils::types::BufferID;
-use utils::uuid::get_uuid_buffer;
 
-/// Struct for a Buffer in Xt
-/// This stores metadata about a buffer.
+/// Struct for a Buffer object in Xt.
+/// Stores buffer state & metadata.
 #[derive(Debug)]
 pub struct Buffer {
-    /// UUID of a buffer.
-    pub buffer_uuid: BufferID,
     /// File path of a buffer.
     pub file_path: Option<PathBuf>,
     /// Active status of a buffer.
@@ -51,19 +46,12 @@ pub struct Buffer {
     pub dirty: bool,
     /// Contents of a buffer.
     pub text: GapBuffer<u8>,
-    /// Logger instance.
-    pub logger: slog::Logger,
 }
 
 impl Buffer {
     /// Return a new instance of `Buffer`.
     pub fn new() -> Buffer {
-        let buffer_uuid = get_uuid_buffer();
-
-        let logger = init_logger().new(o!("buffer_uuid" =>
-                                          buffer_uuid.clone()));
         Buffer {
-            buffer_uuid: buffer_uuid,
             file_path: None,
             active: false,
             temporary: false,
@@ -71,8 +59,7 @@ impl Buffer {
             major_mode: "fundamental-mode",
             minor_modes: Vec::new(),
             dirty: false,
-            text: GapBuffer::new(),
-            logger: logger,
+            text: GapBuffer::new()
         }
     }
 
