@@ -24,20 +24,18 @@
 #![cfg_attr(feature = "ci", allow(unstable_features))]
 
 #![deny(missing_docs, missing_debug_implementations,
-        missing_copy_implementations, trivial_casts,
-        trivial_numeric_casts, unused_import_braces,
-        unused_qualifications)]
+        missing_copy_implementations, trivial_casts, trivial_numeric_casts,
+        unused_import_braces, unused_qualifications)]
 
 #[macro_use]
 extern crate slog;
-extern crate slog_json;
 extern crate slog_async;
+extern crate slog_json;
+extern crate slog_term;
 
-#[macro_use]
-extern crate serde_derive;
+extern crate serde;
 extern crate serde_json;
 
 pub mod logging;
-pub mod rpc;
 pub mod server;
 pub mod utils;
