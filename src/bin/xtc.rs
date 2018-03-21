@@ -42,13 +42,25 @@ fn retrieve_arguments() -> ArgMatches<'static> {
                 .required(false)
                 .help("Set the level of logging verbosity"),
         )
+        .subcommand(
+            SubCommand::with_name("spawn").help("Spawn a instance of Xt"),
+        )
         .get_matches()
 }
 
 fn main() {
-    let cargs = retrieve_arguments();
+    let _cargs = retrieve_arguments();
 
     let log = init_logger();
 
-    error!(log, "This program is unable to start right now.");
+    trace!(
+        log,
+        "Xt-Core loading. Version: {}",
+        env!("GIT_HASH")
+    );
+
+    error!(
+        log,
+        "Xt (core0 is not ready for every-day use yet. I'm very sorry."
+    );
 }
