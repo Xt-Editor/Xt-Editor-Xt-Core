@@ -42,7 +42,7 @@ toml = "0.4.6"
 ropey = "0.6.3"
 
 [dependencies.clippy]
-version = "0.0.201"
+version = "*"
 optional = true
 
 [dependencies.uuid]
