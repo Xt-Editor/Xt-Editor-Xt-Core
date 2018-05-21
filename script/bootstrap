@@ -1,14 +1,19 @@
-#!/bin/bash
+[B#!/bin/bash
 
 if [ -z "${WORKSPACE}" ]; then
-    WORK_DIR="${TRAVIS_BUILD_DIR}"
-    export WORK_DIR
-elif [ -e "${WORKSPACE}" ]; then
-    WORK_DIR="${WORKSPACE}"
-    export WORK_DIR
+    export WORK_DIR="${TRAVIS_BUILD_DIR}/rust"
 else
     echo "Unknown workspace."
     exit 1
+fi
+
+if [[ "${TRAVIS_RUST_VERSION}" == "nightly" ]]; then
+    ( (
+        cargo install clippy \
+            && \
+            export CLIPPY=true ) \
+          || export CLIPPY=false \
+    )
 fi
 
 set -eu

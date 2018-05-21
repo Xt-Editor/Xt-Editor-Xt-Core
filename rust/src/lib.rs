@@ -19,9 +19,9 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#![cfg_attr(feature = "ci", feature(plugin))]
-#![cfg_attr(feature = "ci", plugin(clippy))]
-#![cfg_attr(feature = "ci", allow(unstable_features))]
+#![cfg_attr(feature = "cargo-clippy", feature(plugin))]
+#![cfg_attr(feature = "cargo-clippy", plugin(clippy))]
+#![cfg_attr(feature = "cargo-clippy", allow(unstable_features))]
 #![deny(
     missing_docs, missing_debug_implementations, missing_copy_implementations,
     trivial_casts, trivial_numeric_casts, unused_import_braces,

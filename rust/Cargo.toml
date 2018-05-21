@@ -21,7 +21,6 @@ path = "src/bin/xtc.rs"
 
 [features]
 default= []
-ci = ["clippy"]
 logo = []
 
 [dependencies]

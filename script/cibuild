@@ -2,8 +2,6 @@
 
 if [[ -n "${TRAVIS_BUILD_DIR}" ]]; then
     export WORK_DIR="${TRAVIS_BUILD_DIR}/rust"
-elif [[ -n "${WORKSPACE}" ]]; then
-    export WORK_DIR="${WORKSPACE}/rust"
 else
     echo "Unknown workspace."
     exit 1
@@ -11,11 +9,12 @@ fi
 
 set -eu
 
-# shellcheck source=/dev/null
-. "${PWD}/script/utils.sh"
-
-export PATH="$WORK_DIR/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+if [[ "${TRAVIS_RUST_VERSION}" == "nightly" && \
+          "${CLIPPY}" ]]; then \
+    cargo clippy
+fi
 
 cd "${WORK_DIR}" 
 
