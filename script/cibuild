@@ -10,7 +10,7 @@ if [[ "${TRAVIS_RUST_VERSION}" == "nightly" ]]; then
     cargo install --force clippy && CLIPPY=true
 fi
 
-cd "${WORK_DIR"}
+cd "${WORK_DIR}"
 
 if [[ "${TRAVIS_RUST_VERSION}" == "nightly" && \
           "${CLIPPY}" ]]; then \
