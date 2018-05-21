@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [[ -n "${TRAVIS_BUILD_DIR}" ]]; then
-    export WORK_DIR="${TRAVIS_BUILD_DIR}"
+    export WORK_DIR="${TRAVIS_BUILD_DIR}/rust"
 elif [[ -n "${WORKSPACE}" ]]; then
-    export WORK_DIR="${WORKSPACE}"
+    export WORK_DIR="${WORKSPACE}/rust"
 else
     echo "Unknown workspace."
     exit 1
@@ -16,6 +16,8 @@ set -eu
 
 export PATH="$WORK_DIR/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+cd "${WORK_DIR}" 
 
 make ci-check
 
