@@ -1,6 +1,9 @@
 #!/bin/bash
 
+set -eu
+
 export WORK_DIR="${TRAVIS_BUILD_DIR}/rust"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 if [[ "${TRAVIS_RUST_VERSION}" == "nightly" ]]; then
     ( (
@@ -10,10 +13,6 @@ if [[ "${TRAVIS_RUST_VERSION}" == "nightly" ]]; then
           || export CLIPPY=false \
     )
 fi
-
-set -eu
-
-export PATH="$HOME/.cargo/bin:$PATH"
 
 if [[ "${TRAVIS_RUST_VERSION}" == "nightly" && \
           "${CLIPPY}" ]]; then \
