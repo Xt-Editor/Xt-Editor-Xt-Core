@@ -1,5 +1,5 @@
 digraph coresubsys {
-    node[shape=box];
+    node[shape=box, style=rounded];
 
     xtc [label="xt-core"];
     xtcapi [label="XTC_API\n\nJSON-RPC API for xt Core."]
