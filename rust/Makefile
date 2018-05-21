@@ -14,8 +14,8 @@ clean:
 	${CARGO} ${CARGO_OPTS} clean
 
 ci-check:
-	${CARGO} ${CARGO_OPTS} build --verbose --features clippy
-	${CARGO} ${CARGO_OPTS} test --verbose --features clippy
+	${CARGO} ${CARGO_OPTS} build --verbose
+	${CARGO} ${CARGO_OPTS} test --verbose
 
 test:
 	${CARGO} ${CARGO_OPTS} test
