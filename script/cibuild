@@ -5,13 +5,9 @@ set -eu
 export WORK_DIR="${TRAVIS_BUILD_DIR}/rust"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export CLIPPY=false
 if [[ "${TRAVIS_RUST_VERSION}" == "nightly" ]]; then
-    ( (
-        cargo install --force clippy \
-            && \
-            export CLIPPY=true ) \
-          || export CLIPPY=false \
-    )
+    cargo install --force clippy && CLIPPY=true
 fi
 
 if [[ "${TRAVIS_RUST_VERSION}" == "nightly" && \
