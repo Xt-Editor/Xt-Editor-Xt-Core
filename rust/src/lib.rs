@@ -1,4 +1,4 @@
-//! This is the utilities module for Xt.
+//! This is the main lib.rs file for Xt Core
 
 // This file is part of Xt.
 
@@ -19,18 +19,23 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// Custom types module.
-pub mod types;
+#![cfg_attr(feature = "ci", feature(plugin))]
+#![cfg_attr(feature = "ci", plugin(clippy))]
+#![cfg_attr(feature = "ci", allow(unstable_features))]
+#![deny(
+    missing_docs, missing_debug_implementations, missing_copy_implementations,
+    trivial_casts, trivial_numeric_casts, unused_import_braces,
+    unused_qualifications
+)]
 
-/// UUID module.
-pub mod uuid;
+#[macro_use]
+extern crate slog;
 
-/// Return version of Xt.
-pub fn get_version() -> &'static str {
-    env!("CARGO_PKG_VERSION")
-}
+extern crate slog_async;
+extern crate slog_term;
 
-/// Return name of Xt. (Duh!)
-pub fn get_pkg_name() -> &'static str {
-    env!("CARGO_PKG_NAME")
-}
+extern crate serde;
+
+pub mod logging;
+pub mod server;
+pub mod utils;

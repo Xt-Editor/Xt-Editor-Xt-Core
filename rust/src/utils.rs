@@ -1,4 +1,4 @@
-//! This is the `custom types` module for Xt.
+//! This is the utilities module for Xt.
 
 // This file is part of Xt.
 
@@ -19,5 +19,4 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// ID of a Buffer.
-pub type BufferID = String;
+/* TODO: nothing is here right now, add some */

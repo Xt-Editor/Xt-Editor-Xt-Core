@@ -28,11 +28,21 @@ extern crate slog_term;
 
 use clap::{App, Arg, ArgMatches, SubCommand};
 use xt::logging::init_logger;
-use xt::utils::get_version;
+
+use xt::server::buffer::Buffer;
+use xt::server::modes::major_mode::MajorMode;
+use xt::server::modes::minor_mode::MinorMode;
+use xt::server::workspace::Workspace;
+
+#[cfg(feature = "logo")]
+use std::thread::sleep;
+
+#[cfg(feature = "logo")]
+use std::time::Duration;
 
 fn retrieve_arguments() -> ArgMatches<'static> {
     App::new("xt-core")
-        .version(get_version())
+        .version("0.1.0")
         .author("Dom Rodriguez <shymega@shymega.org.uk>")
         .about("Core backend for Xt.")
         .arg(
@@ -48,19 +58,53 @@ fn retrieve_arguments() -> ArgMatches<'static> {
         .get_matches()
 }
 
+#[cfg(feature = "logo")]
+fn print_logo() {
+    let logo = include_str!("../../data/logo.txt");
+
+    for line in logo.lines() {
+        /* print line */
+        println!("{}", line);
+
+        /* sleep for specified time */
+        sleep(Duration::from_millis(115));
+    }
+}
+
 fn main() {
-    let _cargs = retrieve_arguments();
+    let _args = retrieve_arguments();
 
     let log = init_logger();
 
-    trace!(
-        log,
-        "Xt-Core loading. Version: {}",
-        env!("GIT_HASH")
-    );
+    info!(log, "Xt (core) loading..");
 
-    error!(
+    /* print logo? */
+    #[cfg(feature = "logo")]
+    print_logo();
+
+    warn!(
         log,
-        "Xt (core0 is not ready for every-day use yet. I'm very sorry."
+        "Xt (core) has no configuration file. Reverting to defaults."
     );
+    error!(log, "Xt (core) is not ready for deployment. Halt.");
+
+    info!(log, "Initialise buffer creation.");
+
+    let mut ws = Workspace::new("Default".to_string());
+    let mam = MajorMode::new("fundamental-mode".to_string());
+    let mut mim: Vec<MinorMode> = Vec::new();
+
+    let mim1 = MinorMode::new("auto-wrap-mode".to_string());
+    let mim2 = MinorMode::new("spell-check-mdoe".to_string());
+
+    mim.push(mim1);
+    mim.push(mim2);
+
+    let mut buf = Buffer::new();
+    buf.major_mode = mam;
+    buf.minor_modes = mim;
+
+    ws.buffers.push(buf);
+
+    println!("{:#?}", ws);
 }

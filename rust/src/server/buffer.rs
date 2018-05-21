@@ -24,6 +24,9 @@ extern crate gapbuffer;
 use self::gapbuffer::GapBuffer;
 use std::path::PathBuf;
 
+use server::modes::major_mode::MajorMode;
+use server::modes::minor_mode::MinorMode;
+
 /// Struct for a Buffer object in Xt.
 /// Stores buffer state & metadata.
 #[derive(Debug)]
@@ -36,12 +39,12 @@ pub struct Buffer {
     pub temporary: bool,
     /// If a buffer is r/o.
     /// If this is `true`, then r/w is `false.`
-    /// Likewise, if this is `false`, then r/w is `true.
+    /// Likewise, if this is `false`, then r/w is `true`.
     pub read_only: bool,
     /// Major mode of a buffer
-    pub major_mode: &'static str,
-    /// Vector of Minor modes in a buffer
-    pub minor_modes: Vec<&'static str>,
+    pub major_mode: MajorMode,
+    /// Array of Minor modes in a buffer
+    pub minor_modes: Vec<MinorMode>,
     /// Dirty status of a buffer
     pub dirty: bool,
     /// Contents of a buffer.
@@ -56,10 +59,10 @@ impl Buffer {
             active: false,
             temporary: false,
             read_only: false,
-            major_mode: "fundamental-mode",
+            major_mode: MajorMode::new("fundamental-mode".to_owned()),
             minor_modes: Vec::new(),
             dirty: false,
-            text: GapBuffer::new()
+            text: GapBuffer::new(),
         }
     }
 
@@ -100,13 +103,13 @@ impl Buffer {
     }
 
     /// Return the current major mode of a buffer.
-    pub fn get_major_mode(&self) -> &str {
-        self.major_mode
+    pub fn get_major_mode(&self) -> &MajorMode {
+        &self.major_mode
     }
 
     /// Return a `Vec<&'static str>` of minor modes.
-    pub fn get_minor_modes(&self) -> Vec<&'static str> {
-        self.minor_modes.clone()
+    pub fn get_minor_modes(&self) -> &Vec<MinorMode> {
+        &self.minor_modes
     }
 
     /// Return the length of a buffer.
@@ -124,6 +127,7 @@ impl Default for Buffer {
 #[cfg(test)]
 mod test {
     use super::Buffer;
+    use super::{MajorMode, MinorMode};
 
     #[test]
     fn test_buffer_default_values() {
@@ -139,20 +143,17 @@ mod test {
         assert_eq!(false, buf.read_only);
         assert_eq!(false, buf.is_ro());
 
-        assert_eq!("fundamental-mode", buf.major_mode);
+        assert_eq!("fundamental-mode", buf.major_mode.hname);
         assert_eq!(false, buf.dirty);
     }
 
     #[test]
     fn test_buffer_major_minor_modes() {
         let mut buf = Buffer::new();
-        buf.major_mode = "rust-mode";
-        buf.minor_modes.push("auto-wrap-mode");
-        buf.minor_modes.push("spell-check-mode");
-        buf.minor_modes.push("complete-me-mode");
-        buf.minor_modes.push("language-server-mode");
+        let mam = MajorMode::new("rust-mode".to_owned());
+        let mut mim: Vec<MinorMode> = Vec::new();
 
-        assert_eq!(4, buf.minor_modes.len());
-        assert_eq!("rust-mode", buf.major_mode);
+        buf.major_mode = mam;
+        mim.push(MinorMode::new("auto-wrap".to_owned()));
     }
 }

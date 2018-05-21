@@ -26,7 +26,6 @@ extern crate slog_term;
 use slog::{Drain, Logger};
 use slog_async::Async;
 use slog_term::{FullFormat, TermDecorator};
-use utils::{get_pkg_name, get_version};
 
 /// Initialise the logger.
 pub fn init_logger() -> Logger {
@@ -34,10 +33,5 @@ pub fn init_logger() -> Logger {
     let drain = FullFormat::new(decorator).build().fuse();
     let drain = Async::new(drain).build().fuse();
 
-    Logger::root(
-        drain,
-        o!(
-            "version" => get_version(),
-            "app" => get_pkg_name()),
-    )
+    Logger::root(drain, o!())
 }

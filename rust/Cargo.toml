@@ -1,10 +1,12 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
-description = "Extendable editing: ignore the rules."
+description = "Something something text editing"
 homepage = "https://github.com/xt-editor/xt-core"
-keywords = ["editor", "framework", "text"]
+
+keywords = ["text", "editor", "framework"]
 license = "GPL-3.0"
 name = "xt-core"
+
 readme = "README.md"
 repository = "https://github.com/xt-editor/xt-core.git"
 version = "0.1.0"
@@ -20,35 +22,36 @@ path = "src/bin/xtc.rs"
 [features]
 default= []
 ci = ["clippy"]
+logo = []
 
 [dependencies]
 gapbuffer= "0.1.1"
 log = "0.4.1"
+
 rmp = "0.8.7"
 rmp-serde = "0.13.7"
-serde = "1.0.33"
-serde_derive = "1.0.33"
-serde_json = "1.0.12"
-slog-async = "2.2.0"
-slog-json = "2.2.0"
-slog-term = "2.3.0"
-toml = "0.4.5"
+
+serde = "1.0.55"
+serde_derive = "1.0.55"
+
+slog = "2.2.3"
+slog-async = "2.3.0"
+slog-term = "2.4.0"
+
+toml = "0.4.6"
+ropey = "0.6.3"
 
 [dependencies.clippy]
-version = "0.0.189"
+version = "0.0.201"
 optional = true
 
 [dependencies.uuid]
-version = "0.6.2"
+version = "0.6.3"
 features = ["v4"]
 
 [dependencies.clap]
 version = "2.31.2"
 features = ["suggestions", "color", "wrap_help"]
 
-[dependencies.slog]
-version = "2.1.1"
-
 [profile.release]
 lto = true
-panic = 'abort'

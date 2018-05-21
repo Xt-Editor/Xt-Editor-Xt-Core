@@ -2,9 +2,9 @@
 
 /// Major mode module for Xt.
 ///
-/// Major modes define the type of file opened in the editor.
-/// They are the analogous equivalent of Vim's &filetype concept.
-/// However, each Major mode holds a selection of enabled minor modes.
+/// Major modes define the type of file opened in the editor.  They
+/// are the analogous equivalent of Vim's &filetype concept.  However,
+/// each Major mode holds a selection of enabled minor modes.
 pub mod major_mode;
 
 /// Minor mode module for Xt.
@@ -18,5 +18,6 @@ pub mod major_mode;
 ///
 /// Minor modes can be associated with a Buffer's instance of a major
 /// mode, or not associated. Association is analogous to enabling a
-/// minor mode, and dissociation is analogous to disabling a minor mode
-pub mod minor_modes;
+/// minor mode, and dissociation is analogous to disabling a minor
+/// mode.
+pub mod minor_mode;

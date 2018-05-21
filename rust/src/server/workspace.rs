@@ -4,24 +4,28 @@
 extern crate slog;
 
 use logging::init_logger;
+use server::buffer::Buffer;
 
 /// Workspace struct
 #[derive(Debug)]
 pub struct Workspace {
     /// Human-readable name for workspace.
-    pub w_hname: String,
+    pub hname: String,
     /// Logger instance for workspace.
     /// Derived from root Logger.
     pub logger: slog::Logger,
+    /// Vector of Buffer structs.
+    pub buffers: Vec<Buffer>,
 }
 
 impl Workspace {
     ///
-    pub fn new(w_hname: String) -> Workspace {
-        let w_logger = init_logger().new(o!("workspace" => w_hname.clone()));
+    pub fn new(hname: String) -> Workspace {
+        let logger = init_logger().new(o!("workspace" => hname.clone()));
         Workspace {
-            w_hname,
-            logger: w_logger,
+            hname: hname,
+            logger: logger,
+            buffers: Vec::new(),
         }
     }
 }
