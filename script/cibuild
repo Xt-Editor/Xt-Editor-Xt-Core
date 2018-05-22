@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -eu
-
 export WORK_DIR="${TRAVIS_BUILD_DIR}/rust"
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -14,6 +12,7 @@ cd "${WORK_DIR}"
 
 if [[ "${TRAVIS_RUST_VERSION}" == "nightly" && \
           "${CLIPPY}" ]]; then \
+    cargo check
     cargo clippy
 fi
 
