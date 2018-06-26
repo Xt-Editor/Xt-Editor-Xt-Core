@@ -1,28 +1,38 @@
 digraph coresubsys {
     node[shape=box, style=rounded];
 
-    xtc [label="xt-core"];
-    xtcapi [label="XTC_API\n\nJSON-RPC API for xt Core."]
+    core [label="Xt Core"];
 
-    frontend [label="xt-frontend-sys"];
-    qt_frontend [label="xt-frontend-qt5"];
-    tui_frontend [label="xt-frontend-tui"];
-    cli_frontend [label="xt-frontend-cli"]
-    gtk_frontend [label="xt-frontend-gtk3"];
+    apipoint [label="Xt: RPC API endpoint"];
 
-    plugins [label="xt-plugin-sys"];
-    text_editing [label="xt-module-text-editing"];
-    completion [label="xt-plugin-completion"];
-    modules [label="xt-module-sys"]
+    afrontends [label="Xt: Frontend API endpoint"];
+    frontends [label="Xt: Frontends"];
 
-    xtc->xtcapi [dir="both"];
+    qtf [label="Xt: Qt5 frontend"];
+    gtkf [label="Xt: GTK3 frontend"];
 
-    xtcapi->frontend [dir="both"];
-    frontend->{qt_frontend, tui_frontend, gtk_frontend, cli_frontend} [dir="both", style=dotted];
+    tuif [label="Xt: Terminal frontend"];
+    clif [label="Xt: CLI frontend"];
 
-    xtcapi->plugins [dir="both"];
-    plugins->completion [dir="both"];
+    aplugins [label="Xt: Plugin API endpoint"];
+    plugins [label="Xt: Plugins"];
+    spell_check [label="Xt Plugin: Spell checking"];
+    auto_wrap [label="Xt Plugin: Auto wrapping"];
 
-    xtcapi->modules [dir="both"];
-    modules->text_editing [dir="both"];
+    amodules [label="Xt: Module API endpoint"];
+    modules [label="Xt: Modules"]
+    text_edit [label="Xt Module: Text editing"];
+    completion [label="Xt Module: Auto completion"];
+
+    core -> apipoint [dir="both"];
+    apipoint -> {afrontends,aplugins,amodules} [dir="both"];
+
+    afrontends -> frontends [dir="both"];
+    frontends -> {qtf,gtkf,tuif,clif} [dir="both"];
+
+    aplugins -> plugins [dir="both"];
+    plugins->{spell_check,auto_wrap} [dir="both"];
+
+    amodules -> modules [dir="both"];
+    modules->{text_edit,completion} [dir="both"];
 }
