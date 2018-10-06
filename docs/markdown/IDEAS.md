@@ -16,7 +16,7 @@
   other components.
 
 - Provide a set of defaults.
-  These *could* be Emacs-style for now, in terms of keybindings.
+  Right now, I'm going with GNU Readline style keybindings.
 
 - Written in Rust.
 
