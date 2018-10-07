@@ -1,8 +1,8 @@
 //! This is the Buffer module for Xt.
 
-/* This file is part of Xt.
-*
-/ This is the Xt text editor; it edits text.
+// This file is part of Xt.
+//
+// This is the Xt text editor; it edits text.
 // Copyright (C) 2016-2018 The Xt Developers
 
 // This program is free software: you can redistribute it and/or
