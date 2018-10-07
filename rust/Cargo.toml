@@ -21,7 +21,6 @@ path = "src/bin/xtc.rs"
 
 [features]
 default= []
-logo = []
 
 [dependencies]
 gapbuffer= "0.1.1"

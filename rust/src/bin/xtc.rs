@@ -33,13 +33,6 @@ use xt::server::buffer::Buffer;
 use xt::server::modes::major_mode::MajorMode;
 use xt::server::modes::minor_mode::MinorMode;
 use xt::server::workspace::Workspace;
-
-#[cfg(feature = "logo")]
-use std::thread::sleep;
-
-#[cfg(feature = "logo")]
-use std::time::Duration;
-
 fn retrieve_arguments() -> ArgMatches<'static> {
     App::new("xt-core")
         .version("0.1.0")
@@ -58,17 +51,6 @@ fn retrieve_arguments() -> ArgMatches<'static> {
         .get_matches()
 }
 
-#[cfg(feature = "logo")]
-fn print_logo() {
-    let logo = include_str!("../../data/logo.txt");
-
-    for line in logo.lines() {
-        /* print line */
-        println!("{}", line);
-
-        /* sleep for specified time */
-        sleep(Duration::from_millis(115));
-    }
 }
 
 fn main() {
@@ -77,10 +59,6 @@ fn main() {
     let log = init_logger();
 
     info!(log, "Xt (core) loading..");
-
-    /* print logo? */
-    #[cfg(feature = "logo")]
-    print_logo();
 
     warn!(
         log,
