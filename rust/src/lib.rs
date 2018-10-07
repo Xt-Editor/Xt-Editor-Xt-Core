@@ -23,8 +23,12 @@
 #![cfg_attr(feature = "cargo-clippy", plugin(clippy))]
 #![cfg_attr(feature = "cargo-clippy", allow(unstable_features))]
 #![deny(
-    missing_docs, missing_debug_implementations, missing_copy_implementations,
-    trivial_casts, trivial_numeric_casts, unused_import_braces,
+    missing_docs,
+    missing_debug_implementations,
+    missing_copy_implementations,
+    trivial_casts,
+    trivial_numeric_casts,
+    unused_import_braces,
     unused_qualifications
 )]
 
