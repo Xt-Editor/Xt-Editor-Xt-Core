@@ -19,6 +19,7 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+/// Struct for a 'major mode', associated with a `Buffer` struct.
 #[derive(Debug)]
 pub struct MajorMode {
     /// Human-readable name for major mode.
