@@ -3,19 +3,19 @@ SHELL := /bin/sh
 CARGO := cargo
 CARGO_OPTS :=
 
-GRAPHVIZ_BUILDER := dot
+.POSIX:
+.PHONY: all build clean test bench ci doc
 
-all: build test doc doc_info
+all: build
 
 build:
 	${CARGO} ${CARGO_OPTS} build
 
+release:
+	${CARGO} ${CARGO_OPTS} build --release
+
 clean:
 	${CARGO} ${CARGO_OPTS} clean
-
-ci-check:
-	${CARGO} ${CARGO_OPTS} build --verbose
-	${CARGO} ${CARGO_OPTS} test --verbose
 
 test:
 	${CARGO} ${CARGO_OPTS} test
@@ -23,18 +23,7 @@ test:
 bench:
 	${CARGO} ${CARGO_OPTS} bench
 
-doc: doc_gen_html doc_gen_info
+ci: clean build test
+
+doc:
 	${CARGO} ${CARGO_OPTS} doc
-
-doc_gen_html:
-	cd doc/sphinx && make html
-
-doc_gen_info:
-	cd doc/sphinx && make info
-
-dot_core_relations:
-	cd doc/graphviz; \
-	${GRAPHVIZ_BUILDER} -Tpng -o core-relations.png \
-		core-relations.dot
-
-.PHONY: all build clean ci-check test bench doc doc_gen_html doc_gen_info
