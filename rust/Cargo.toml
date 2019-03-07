@@ -2,11 +2,9 @@
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
 description = "Something something text editing"
 homepage = "https://github.com/xt-editor/xt-core"
-
 keywords = ["text", "editor", "framework"]
 license = "GPL-3.0"
 name = "xt-core"
-
 readme = "README.md"
 repository = "https://github.com/xt-editor/xt-core.git"
 version = "0.1.0"
@@ -40,15 +38,11 @@ toml = "0.4.6"
 ropey = "0.6.3"
 
 [dependencies.clippy]
-version = "*"
+version = "0.0.302"
 optional = true
 
-[dependencies.uuid]
-version = "0.6.3"
-features = ["v4"]
-
 [dependencies.clap]
-version = "2.31.2"
+version = "2.32.0"
 features = ["suggestions", "color", "wrap_help"]
 
 [profile.release]
