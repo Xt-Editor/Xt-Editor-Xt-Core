@@ -7,14 +7,9 @@ Xt project.
 
 ## `Xt/core`
 
-### Buffers
+### Buffers and files
 
-A buffer is called a buffer. This is similar to most text editors,
-such as GNU Emacs.
-
-### Files
-
-When talking about a file, it is called a file, just like normal.
+Pretty much self-explanatory.
 
 ### Commands
 
@@ -28,10 +23,3 @@ interactive prompt, similar to GNU Emacs.
 
 The third one is called a `internal` command. It should only be used
 for nitty-gritty stuff, and should not used on a day-to-day basis.
-
-### Views
-
-A window is a view *into* a buffer.
-
-It can be used from different 'viewports' of Xt (We'll come to
-that.), and split multiple times.

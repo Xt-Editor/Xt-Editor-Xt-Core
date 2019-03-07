@@ -34,9 +34,7 @@
   It is my aim to provide both a decentralised package manager, where
   packages can be retrieved from 'nodes' in a P2P fashion, and also
   where the source code (from `master`, or perhaps a commit hash), is
-  stored - for example, on Notabug (A freedom respecting code hosting
-  service) - *or* Github, a non-free code hosting service, but commonly
-  used all the same.
+  stored on a Git repository.
 
 - Major & Minor modes
     Emacs has support for 'major modes', which essentially define the
@@ -103,7 +101,7 @@ The permissions model would be along the lines of this:
 
 - `Xt.permissions.buffers.line_range_read`
   Arguments: `line_begin`, `line_end`
-  
+
   This would allow 'ranges' of lines to be read by the text editor.
 
 - `Xt.permissions.buffers.edit_buffer`
@@ -127,3 +125,16 @@ The permissions model would be along the lines of this:
 To the best of my knowledge, *no* other editor supports a permissions
 model, and thus, `Xt` would be the first editor of its kind to
 *ever* implement permissions.
+
+## External process communication
+
+Xt will support stdio communication between xt-core and external
+processes. This feature will be known as "ports".
+
+## External libraries
+
+Xt will support (with potential instability) external libraries using
+the FFI module.
+
+This can be unstable, and should be implemented in such a way to
+mitigate Xt core crashes.
