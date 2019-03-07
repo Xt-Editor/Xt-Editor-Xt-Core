@@ -3,7 +3,7 @@ SHELL := /bin/sh
 .POSIX:
 .PHONY: all clean doc rust rust_release
 
-all: rust doc
+all: rust
 
 rust:
 	+${MAKE} all -C rust
