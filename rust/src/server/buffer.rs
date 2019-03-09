@@ -127,13 +127,13 @@ impl Default for Buffer {
 #[cfg(test)]
 mod test {
     use super::Buffer;
-    use super::{MajorMode, MinorMode};
 
     #[test]
-    fn test_buffer_default_values() {
+    fn test_default_values_buffer() {
         let buf = Buffer::new();
 
         assert_eq!(None, buf.file_path);
+
         assert_eq!(false, buf.active);
         assert_eq!(false, buf.is_active());
 
@@ -143,17 +143,10 @@ mod test {
         assert_eq!(false, buf.read_only);
         assert_eq!(false, buf.is_ro());
 
+        assert_eq!(0, buf.text.len());
+
         assert_eq!("fundamental-mode", buf.major_mode.hname);
+        assert_eq!(0, buf.minor_modes.len());
         assert_eq!(false, buf.dirty);
-    }
-
-    #[test]
-    fn test_buffer_major_minor_modes() {
-        let mut buf = Buffer::new();
-        let mam = MajorMode::new("rust-mode".to_owned());
-        let mut mim: Vec<MinorMode> = Vec::new();
-
-        buf.major_mode = mam;
-        mim.push(MinorMode::new("auto-wrap".to_owned()));
     }
 }
