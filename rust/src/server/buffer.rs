@@ -19,9 +19,7 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-extern crate gapbuffer;
-
-use self::gapbuffer::GapBuffer;
+use super::gapbuffer::GapBuffer;
 use std::path::PathBuf;
 
 use server::modes::major_mode::MajorMode;
