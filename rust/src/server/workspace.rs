@@ -38,9 +38,11 @@ pub struct Workspace {
 }
 
 impl Workspace {
-    ///
-    pub fn new(hname: String) -> Workspace {
+    /// Create a new workspace.
+    pub fn new<S: Into<String>>(hname: S) -> Workspace {
+        let hname = hname.into();
         let logger = init_logger().new(o!("workspace" => hname.clone()));
+
         Workspace {
             hname: hname,
             logger: logger,
