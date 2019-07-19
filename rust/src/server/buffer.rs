@@ -118,12 +118,6 @@ impl Buffer {
     }
 }
 
-impl Default for Buffer {
-    fn default() -> Buffer {
-        Buffer::new()
-    }
-}
-
 #[cfg(test)]
 mod test {
     use super::Buffer;
