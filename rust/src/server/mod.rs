@@ -19,6 +19,8 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+extern crate gapbuffer;
+
 /// `Buffer` struct module for Xt.
 ///
 /// Each struct instance holds a Buffer's state, and links with the
