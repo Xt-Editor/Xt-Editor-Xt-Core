@@ -50,7 +50,7 @@ pub struct Buffer {
 }
 
 impl Buffer {
-    /// Return a new instance of `Buffer`.
+    /// Return a new `Buffer`.
     pub fn new() -> Buffer {
         Buffer {
             file_path: None,
@@ -92,9 +92,11 @@ impl Buffer {
     }
 
     /// Return true if a buffer is dirty.
+
     /// If it's not dirty, then return false.
     /// A dirty buffer is defined by the characteristic of the buffer
     /// having changed since the last save.
+
     /// Temporary buffers are *exempt* from this field.
     pub fn is_dirty(&self) -> bool {
         self.dirty
@@ -105,7 +107,7 @@ impl Buffer {
         &self.major_mode
     }
 
-    /// Return a `Vec<&'static str>` of minor modes.
+    /// Return a `Vec<MinorMode>` array of minor modes.
     pub fn get_minor_modes(&self) -> &Vec<MinorMode> {
         &self.minor_modes
     }
