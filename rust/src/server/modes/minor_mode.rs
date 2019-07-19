@@ -28,7 +28,9 @@ pub struct MinorMode {
 
 impl MinorMode {
     /// Create a new instance of a Minor Mode.
-    pub fn new(hname: String) -> MinorMode {
-        MinorMode { hname }
+    pub fn new<S: Into<String>>(hname: S) -> MinorMode {
+        MinorMode {
+            hname: hname.into(),
+        }
     }
 }
