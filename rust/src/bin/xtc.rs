@@ -29,10 +29,6 @@ extern crate slog_term;
 use clap::{App, Arg, ArgMatches, SubCommand};
 use xt::logging::init_logger;
 
-use xt::server::buffer::Buffer;
-use xt::server::modes::major_mode::MajorMode;
-use xt::server::modes::minor_mode::MinorMode;
-use xt::server::workspace::Workspace;
 fn retrieve_arguments() -> ArgMatches<'static> {
     App::new("xt-core")
         .version("0.1.0")
@@ -51,8 +47,6 @@ fn retrieve_arguments() -> ArgMatches<'static> {
         .get_matches()
 }
 
-}
-
 fn main() {
     let _args = retrieve_arguments();
 
@@ -64,25 +58,8 @@ fn main() {
         log,
         "Xt (core) has no configuration file. Reverting to defaults."
     );
-    error!(log, "Xt (core) is not ready for deployment. Halt.");
 
-    info!(log, "Initialise buffer creation.");
+    error!(log, "Xt Core is not ready for deployment. Halt.");
 
-    let mut ws = Workspace::new("Default".to_string());
-    let mam = MajorMode::new("fundamental-mode".to_string());
-    let mut mim: Vec<MinorMode> = Vec::new();
-
-    let mim1 = MinorMode::new("auto-wrap-mode".to_string());
-    let mim2 = MinorMode::new("spell-check-mdoe".to_string());
-
-    mim.push(mim1);
-    mim.push(mim2);
-
-    let mut buf = Buffer::new();
-    buf.major_mode = mam;
-    buf.minor_modes = mim;
-
-    ws.buffers.push(buf);
-
-    println!("{:#?}", ws);
+    unimplemented!();
 }
