@@ -8,8 +8,8 @@ digraph coresubsys {
     afrontends [label="Xt: Frontend API endpoint"];
     frontends [label="Xt: Frontends"];
 
-    qtf [label="Xt: Qt5 frontend"];
-    gtkf [label="Xt: GTK3 frontend"];
+    qtf [label="Xt: Qt frontend"];
+    gtkf [label="Xt: GTK frontend"];
 
     tuif [label="Xt: Terminal frontend"];
     clif [label="Xt: CLI frontend"];
