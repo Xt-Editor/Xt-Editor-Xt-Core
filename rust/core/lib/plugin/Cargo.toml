@@ -1,0 +1,23 @@
+[package]
+authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
+description = "Plugin module for Xt Core"
+homepage = "https://github.com/xt-editor/xt-core"
+keywords = ["text", "editor", "framework"]
+license = "GPL-3.0"
+name = "xt-core-plugin"
+readme = "README.md"
+repository = "https://github.com/xt-editor/xt-core.git"
+version = "0.1.0"
+
+[lib]
+name = "xt_core_plugin"
+path = "src/lib.rs"
+
+[dependencies]
+slog = "2.2.3"
+slog-async = "2.3.0"
+slog-term = "2.4.0"
+
+[dependencies.clippy]
+version = "0.0.302"
+optional = true

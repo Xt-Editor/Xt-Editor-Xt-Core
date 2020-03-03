@@ -125,7 +125,6 @@ mod test {
     #[test]
     fn test_default_values_buffer() {
         let buf = Buffer::new();
-
         assert_eq!(None, buf.file_path);
 
         assert_eq!(false, buf.active);
@@ -137,7 +136,7 @@ mod test {
         assert_eq!(false, buf.read_only);
         assert_eq!(false, buf.is_ro());
 
-        assert_eq!(0, buf.text.len());
+        assert_eq!(0, buf.get_buffer_length());
 
         assert_eq!("fundamental-mode", buf.major_mode.hname);
         assert_eq!(0, buf.minor_modes.len());

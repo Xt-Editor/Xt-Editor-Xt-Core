@@ -1,0 +1,29 @@
+[package]
+authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
+description = "Server for Xt Core"
+homepage = "https://github.com/xt-editor/xt-core"
+keywords = ["text", "editor", "framework"]
+license = "GPL-3.0"
+name = "xt-core-daemon"
+readme = "README.md"
+repository = "https://github.com/xt-editor/xt-core.git"
+version = "0.1.0"
+
+[lib]
+name = "xt_core_daemon"
+path = "src/lib.rs"
+
+[dependencies]
+slog = "2.2.3"
+slog-async = "2.3.0"
+slog-term = "2.4.0"
+xt-core-system = { path = "../lib/system" }
+xt-core-rpc = { path = "../lib/rpc" }
+
+[dependencies.clippy]
+version = "0.0.302"
+optional = true
+
+[dependencies.clap]
+features = ["suggestions", "color", "wrap_help"]
+version = "2.33.0"

@@ -1,49 +1,10 @@
-[package]
-authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
-description = "Something something text editing"
-homepage = "https://github.com/xt-editor/xt-core"
-keywords = ["text", "editor", "framework"]
-license = "GPL-3.0"
-name = "xt-core"
-readme = "README.md"
-repository = "https://github.com/xt-editor/xt-core.git"
-version = "0.1.0"
-
-[lib]
-name = "xt_core"
-path = "src/lib.rs"
-
-[[bin]]
-name = "xtc"
-path = "src/bin/xtc.rs"
-
-[features]
-default= []
-
-[dependencies]
-gapbuffer= "0.1.1"
-log = "0.4.1"
-
-rmp = "0.8.7"
-rmp-serde = "0.13.7"
-
-serde = "1.0.55"
-serde_derive = "1.0.55"
-
-slog = "2.2.3"
-slog-async = "2.3.0"
-slog-term = "2.4.0"
-
-toml = "0.4.6"
-ropey = "0.6.3"
-
-[dependencies.clippy]
-version = "0.0.302"
-optional = true
-
-[dependencies.clap]
-version = "2.32.0"
-features = ["suggestions", "color", "wrap_help"]
+[workspace]
+members = [
+   "core/daemon",
+   "core/lib/plugin",
+   "core/lib/rpc",
+   "core/lib/system"
+]
 
 [profile.release]
-lto = true
+lto = "true"

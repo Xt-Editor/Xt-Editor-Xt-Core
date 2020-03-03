@@ -1,4 +1,4 @@
-//! This is the Server module for Xt.
+//! Major Mode struct for Xt.
 
 // This file is part of Xt.
 
@@ -19,21 +19,19 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-extern crate gapbuffer;
+/// Struct for a 'major mode', associated with a `Buffer` struct.
+#[derive(Debug)]
+pub struct MajorMode {
+    /// Human-readable name for major mode.
+    pub human_name: String,
+}
 
-/// `Buffer` struct module for Xt.
-///
-/// Each struct instance holds a Buffer's state, and links with the
-/// associated workspace of the buffer.
-/// If no workspace is defined, it uses the wildcard workspace.
-pub mod buffer;
-
-/// Workspace module for Xt.
-/// Holds a collection of `Buffer` structs together with
-/// `Vec<Buffers>`.
-pub mod workspace;
-
-/// Major and Minor modes for Xt.
-/// Defines the basic structure for each modes, with (planned)
-/// extensible.
-pub mod modes;
+impl MajorMode {
+    /// Create a new instance of a Minor Mode.
+    pub fn new(hname: String) -> MajorMode {
+        MajorMode {
+            human_name: human_name,
+            owner: "shymega",
+        }
+    }
+}

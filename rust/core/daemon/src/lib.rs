@@ -1,4 +1,4 @@
-//! This is the utilities module for Xt.
+//! This is the main lib.rs file for Xt Core
 
 // This file is part of Xt.
 
@@ -19,4 +19,17 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/* TODO: nothing is here right now, add some */
+#![cfg_attr(feature = "cargo-clippy", feature(plugin))]
+#![cfg_attr(feature = "cargo-clippy", plugin(clippy))]
+#![cfg_attr(feature = "cargo-clippy", allow(unstable_features))]
+#![deny(
+    missing_docs,
+    missing_debug_implementations,
+    missing_copy_implementations,
+    trivial_casts,
+    trivial_numeric_casts,
+    unused_import_braces,
+    unused_qualifications
+)]
+
+extern crate xt_core_system;

@@ -1,4 +1,4 @@
-//! Major Mode struct for Xt.
+//! Minor mode struct for Xt.
 
 // This file is part of Xt.
 
@@ -19,18 +19,18 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/// Struct for a 'major mode', associated with a `Buffer` struct.
+/// Struct for a `minor mode`, associated with a `Buffer` struct.
 #[derive(Debug)]
-pub struct MajorMode {
+pub struct MinorMode {
     /// Human-readable name for major mode.
     pub hname: String,
 }
 
-impl MajorMode {
+impl MinorMode {
     /// Create a new instance of a Minor Mode.
-    pub fn new<S: Into<String>>(hname: S) -> MajorMode {
-        MajorMode {
-            hname: hname.into(),
+    pub fn new(hname: String) -> MinorMode {
+        MinorMode {
+            hname: hname,
         }
     }
 }

@@ -1,5 +1,4 @@
-//! Workspace module for Xt.
-//! Handles workspaces and their associated buffers.
+//! This is the logging module for Xt.
 
 // This file is part of Xt.
 
@@ -21,32 +20,22 @@
 // <http://www.gnu.org/licenses/>.
 
 extern crate slog;
+extern crate slog_term;
 
-use logging::init_logger;
-use server::buffer::Buffer;
+use std::sync::Mutex;
 
-/// Workspace struct
-#[derive(Debug)]
-pub struct Workspace {
-    /// Human-readable name for workspace.
-    pub hname: String,
-    /// Logger instance for workspace.
-    /// Derived from root Logger.
-    pub logger: slog::Logger,
-    /// Vector of Buffer structs.
-    pub buffers: Vec<Buffer>,
-}
+use slog::{Logger, Drain};
+use slog_term::{TermDecorator, CompactFormat};
 
-impl Workspace {
-    /// Create a new workspace.
-    pub fn new<S: Into<String>>(hname: S) -> Workspace {
-        let hname = hname.into();
-        let logger = init_logger().new(o!("workspace" => hname.clone()));
+/// Logger initialistion function.
+pub fn init_logger(module: & 'static str) -> Logger {
+    let decorator = TermDecorator::new()
+        .build();
+    let drain = CompactFormat::new(decorator)
+        .build()
+        .fuse();
+    let drain = Mutex::new(drain)
+       .fuse();
 
-        Workspace {
-            hname: hname,
-            logger: logger,
-            buffers: Vec::new(),
-        }
-    }
+    Logger::root(drain, o!("module" => module))
 }
