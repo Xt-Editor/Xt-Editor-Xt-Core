@@ -1,7 +1,7 @@
 [clog]
 repository = "https://github.com/xt-editor/xt-core"
 subtitle = "Extensible editing: screw limits."
-
+subtitle
 link-style = "github"
 changelog = "CHANGELOG.md"
 output-format = "markdown"

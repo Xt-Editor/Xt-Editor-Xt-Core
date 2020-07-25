@@ -1,10 +1,11 @@
 [workspace]
 members = [
-   "core/daemon",
-   "core/lib/plugin",
-   "core/lib/rpc",
-   "core/lib/system"
+   "lib/xt_core/plugin",
+   "lib/xt_core/rpc",
+   "lib/xt_core/system",
+   "bin/daemon",
+   "bin/cli"
 ]
 
 [profile.release]
-lto = "true"
+lto = "on"

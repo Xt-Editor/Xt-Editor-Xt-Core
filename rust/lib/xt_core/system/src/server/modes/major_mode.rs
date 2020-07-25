@@ -1,5 +1,4 @@
-//! Workspace module for Xt.
-//! Handles workspaces and their associated buffers.
+//! Major Mode struct for Xt.
 
 // This file is part of Xt.
 
@@ -20,32 +19,18 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-extern crate slog;
-
-use logging::init_logger;
-use server::buffer::Buffer;
-
-/// Workspace struct
+/// Struct for a 'major mode', associated with a `Buffer` struct.
 #[derive(Debug)]
-pub struct Workspace {
-    /// Human-readable name for workspace.
-    pub hname: String,
-    /// Logger instance for workspace.
-    /// Derived from root Logger.
-    pub logger: slog::Logger,
-    /// Vector of Buffer structs.
-    pub buffers: Vec<Buffer>,
+pub struct MajorMode {
+    /// Human-readable name for major mode.
+    pub human_name: String,
 }
 
-impl Workspace {
-    /// Create a new workspace.
-    pub fn new(hname: String) -> Workspace {
-        let logger = init_logger().new(o!("workspace" => hname.clone()));
-
-        Workspace {
-            hname: hname,
-            logger: logger,
-            buffers: Vec::new(),
+impl MajorMode {
+    /// Create a new instance of a Minor Mode.
+    pub fn new(human_name: String) -> MajorMode {
+        MajorMode {
+            human_name: human_name,
         }
     }
 }

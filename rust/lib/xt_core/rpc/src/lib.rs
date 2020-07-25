@@ -6,7 +6,7 @@ extern crate slog;
 use xtcs::logging::init_logger;
 
 pub fn init_rpc() {
-    let log = init_logger("xt_core_rpc");
+    let log = init_logger("xt_core_rpc", slog::Level::Info);
 
     debug!(log,
         "RPC module initalising...";

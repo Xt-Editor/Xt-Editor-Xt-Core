@@ -19,8 +19,8 @@
 // along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-use super::gapbuffer::GapBuffer;
 use std::path::PathBuf;
+use crate::server::gapbuffer::GapBuffer;
 
 use server::modes::major_mode::MajorMode;
 use server::modes::minor_mode::MinorMode;
@@ -121,11 +121,11 @@ impl Buffer {
 #[cfg(test)]
 mod test {
     use super::Buffer;
+    use server::workspace::Workspace;
 
     #[test]
     fn test_default_values_buffer() {
         let buf = Buffer::new();
-        assert_eq!(None, buf.file_path);
 
         assert_eq!(false, buf.active);
         assert_eq!(false, buf.is_active());
@@ -138,7 +138,7 @@ mod test {
 
         assert_eq!(0, buf.get_buffer_length());
 
-        assert_eq!("fundamental-mode", buf.major_mode.hname);
+        assert_eq!("fundamental-mode", buf.major_mode.human_name);
         assert_eq!(0, buf.minor_modes.len());
         assert_eq!(false, buf.dirty);
     }

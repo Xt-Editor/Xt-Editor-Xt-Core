@@ -14,10 +14,17 @@ name = "xt_core_plugin"
 path = "src/lib.rs"
 
 [dependencies]
-slog = "2.2.3"
-slog-async = "2.3.0"
-slog-term = "2.4.0"
+slog-async = "2.4.0"
+slog-term = "2.5.0"
+
+[dependencies.slog]
+version = "2.5.2"
+default-features = false
+features = [
+    "max_level_trace",
+    "release_max_level_warn"
+]
 
 [dependencies.clippy]
-version = "0.0.302"
+version = "*"
 optional = true

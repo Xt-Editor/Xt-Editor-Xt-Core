@@ -24,18 +24,23 @@ extern crate slog_term;
 
 use std::sync::Mutex;
 
-use slog::{Logger, Drain};
-use slog_term::{TermDecorator, CompactFormat};
+use slog::{Logger, Drain, Level};
+use slog_term::{TermDecorator, FullFormat};
 
 /// Logger initialistion function.
-pub fn init_logger(module: & 'static str) -> Logger {
+pub fn init_logger(module: & 'static str, lvl: Level) -> Logger {
     let decorator = TermDecorator::new()
         .build();
-    let drain = CompactFormat::new(decorator)
+
+    let drain = FullFormat::new(decorator)
         .build()
         .fuse();
+
+    let drain = slog::LevelFilter::new(drain, lvl)
+        .fuse();
+
     let drain = Mutex::new(drain)
-       .fuse();
+        .fuse();
 
     Logger::root(drain, o!("module" => module))
 }
