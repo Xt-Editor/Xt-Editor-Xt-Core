@@ -1,11 +1,32 @@
 [workspace]
 members = [
+   "bin/xt-cli",
+   "bin/xt-daemon",
+   "bin/xt-remote-daemon",
    "lib/xt_core/plugin",
    "lib/xt_core/rpc",
-   "lib/xt_core/system",
-   "bin/daemon",
-   "bin/cli"
+   "lib/xt_core/utils",
+   "lib/xt_core/system"
 ]
 
+[profile.dev]
+lto = true
+opt-level = 's'
+codegen-units = 1
+debug = true
+
+[profile.dev.package."*"]
+codegen-units = 1
+opt-level = 's'
+debug = true
+
 [profile.release]
-lto = "on"
+lto = true
+opt-level = 's'
+codegen-units = 1
+debug = true
+
+[profile.release.package."*"]
+codegen-units = 1
+opt-level = 's'
+debug = false
