@@ -1,7 +1,0 @@
-[clog]
-repository = "https://github.com/xt-editor/xt-core"
-subtitle = "Extendable editing, but polished!"
-link-style = "github"
-changelog = "CHANGELOG.md"
-output-format = "markdown"
-from-latest-tag = true

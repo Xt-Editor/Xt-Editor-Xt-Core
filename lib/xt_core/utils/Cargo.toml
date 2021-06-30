@@ -1,0 +1,26 @@
+[package]
+authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
+description = "Utilities module for Xt Core"
+homepage = "https://github.com/xt-editor/xt-core"
+keywords = ["text", "editor", "framework"]
+license = "MIT OR Apache-2.0"
+name= "xt-core-utils"
+readme = "README.md"
+repository = "https://github.com/xt-editor/xt-core.git"
+version = "0.1.0"
+
+[lib]
+name = "xt_core_utils"
+path = "src/lib.rs"
+
+[dependencies]
+slog-async = "2.6.0"
+slog-term = "2.8.0"
+
+[dependencies.slog]
+version = "2.7.0"
+default-features = false
+features = [
+    "max_level_trace",
+    "release_max_level_warn"
+]
