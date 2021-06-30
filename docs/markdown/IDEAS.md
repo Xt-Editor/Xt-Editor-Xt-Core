@@ -9,14 +9,14 @@
 ## Key features
 
 - Package/plugin support.
-  - JSON-API interface to `Xt/core`
+  - JSON-RPC interface to `Xt/core`
 
 - Encourage customisation.
-  Xt should encourage customisation of the core, plugins and
-  other components.
+    Xt should encourage customisation of the core, plugins and
+    other components.
 
 - Provide a set of defaults.
-  Right now, I'm going with GNU Readline style keybindings.
+    Right now, I'm going with GNU Readline style keybindings.
 
 - Written in Rust.
 
