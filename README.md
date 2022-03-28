@@ -1,8 +1,8 @@
 <h1 align="center">
-    <a href="https://github.com/xt-editor/xt">
-        <img src="media/logos/PNG/xt-256.png" alt="Xt Editor" width="256" height="256"/>
+    <a href="https://github.com/Xt-Editor/xt">
+        <img src="https://raw.githubusercontent.com/Xt-Editor/Xt-Core/main/media/logos/png/xt-256.png" alt="Xt Editor" width="256" height="256"/>
     </a><br>
-    <a href="https://github.com/xt-editor/xt">Xt Editor</a>
+    <a href="https://github.com/Xt-Editor/Xt">Xt Editor</a>
 </h1>
 
 <h4 align="center">Extendable editing: defy the norm.</h4>
