@@ -1,6 +1,6 @@
 # Hacking on Xt
 
-(This is derived from Limetext's templates. Kudos to them.)
+<!-- (This is derived from Limetext's templates. Kudos to them.) -->
 
 1. The issues list is for development purposes only.
    All issues reported in this repository should result in **code
@@ -16,10 +16,10 @@
 ### Branch naming conventions
 
 Feature branches should be named according to this template:
-`feature/{FEATURE_NAME}`
+`feature--{FEATURE_NAME}`
 
 Bugfix branches should be named according to this template:
-`bugfix/{ISSUE_ID}`
+`fix--{ISSUE_ID}`
 
 ### Commit messages
 
