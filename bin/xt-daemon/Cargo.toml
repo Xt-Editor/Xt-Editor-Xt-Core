@@ -8,33 +8,8 @@ name = "xt-daemon"
 readme = "README.md"
 repository = "https://github.com/xt-editor/xt-core.git"
 version = "0.1.0"
+edition = "2021"
 
-[lib]
-name = "xt_core_daemon"
-path = "src/lib.rs"
-
-[dependencies]
-slog-async = "2.6.0"
-slog-term = "2.8.0"
-
-[dependencies.xt-core-system]
-path = "../../lib/xt_core/system"
-
-[dependencies.xt-core-utils]
-path = "../../lib/xt_core/utils"
-
-[dependencies.slog]
-version = "2.7.0"
-default-features = false
-features = [
-    "max_level_trace",
-    "release_max_level_warn"
-]
-
-[dependencies.clap]
-features = [
-    "suggestions",
-    "color",
-    "wrap_help"
-]
-version = "2.33.3"
+[[bin]]
+name = "xtd"
+path = "src/main.rs"

@@ -1,5 +1,6 @@
-//! CLI tool for interacting with Xt's core.
+//! This module serves as the entry point into Xt's main binary.
 #![deny(
+    warnings,
     missing_copy_implementations,
     missing_debug_implementations,
     missing_docs,

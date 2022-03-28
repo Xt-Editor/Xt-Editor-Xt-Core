@@ -1,14 +1,13 @@
 //! This is the Buffer module for Xt.
 
-use crate::server::gapbuffer::GapBuffer;
+use crate::modes::major_mode::MajorMode;
+use crate::modes::minor_mode::MinorMode;
+use gapbuffer::GapBuffer;
 use std::path::PathBuf;
-
-use server::modes::major_mode::MajorMode;
-use server::modes::minor_mode::MinorMode;
 
 /// Struct for a Buffer object in Xt.
 /// Stores buffer state & metadata.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Buffer {
     /// File path of a buffer.
     pub file_path: Option<PathBuf>,
@@ -21,30 +20,32 @@ pub struct Buffer {
     /// Likewise, if this is `false`, then r/w is `true`.
     pub read_only: bool,
     /// Major mode of a buffer
-    pub major_mode: MajorMode,
+    pub major_mode: Option<MajorMode>,
     /// Array of Minor modes in a buffer
-    pub minor_modes: Vec<MinorMode>,
+    pub minor_modes: Option<Vec<MinorMode>>,
     /// Dirty status of a buffer
     pub dirty: bool,
     /// Contents of a buffer.
-    pub text: GapBuffer<u8>,
+    pub text: Option<GapBuffer<u8>>,
 }
 
-impl Buffer {
+impl Default for Buffer {
     /// Return a new `Buffer`.
-    pub fn new() -> Buffer {
-        Buffer {
+    fn default() -> Self {
+        Self {
             file_path: None,
             active: false,
             temporary: false,
             read_only: false,
-            major_mode: MajorMode::default(),
-            minor_modes: Vec::new(),
+            major_mode: Some(MajorMode::default()),
+            minor_modes: Some(Vec::new()),
             dirty: false,
-            text: GapBuffer::new(),
+            text: Some(GapBuffer::new()),
         }
     }
+}
 
+impl Buffer {
     /// Return true if a buffer is active.
     /// That is to say, a 'focused' buffer, or otherwise in-use, and
     /// *not* inactive.
@@ -58,7 +59,7 @@ impl Buffer {
     /// A temporary buffer is defined by the characteristic of having
     /// no 'target' to save to.
     pub fn is_temporary(&self) -> bool {
-        self.temporary
+        self.file_path.is_none()
     }
 
     /// Return true if a buffer is read only.
@@ -84,29 +85,28 @@ impl Buffer {
     }
 
     /// Return the current major mode of a buffer.
-    pub fn get_major_mode(&self) -> &MajorMode {
-        &self.major_mode
+    pub fn get_major_mode(&self) -> MajorMode {
+        self.major_mode.as_ref().unwrap().clone()
     }
 
     /// Return a `Vec<MinorMode>` array of minor modes.
-    pub fn get_minor_modes(&self) -> &Vec<MinorMode> {
-        &self.minor_modes
+    pub fn get_minor_modes(&self) -> Vec<MinorMode> {
+        self.minor_modes.as_ref().unwrap().to_vec()
     }
 
     /// Return the length of a buffer.
     pub fn get_buffer_length(&self) -> usize {
-        self.text.len()
+        self.text.as_ref().unwrap().len()
     }
 }
 
 #[cfg(test)]
 mod test {
     use super::Buffer;
-    use server::workspace::Workspace;
 
     #[test]
     fn test_default_values_buffer() {
-        let buf = Buffer::new();
+        let buf = Buffer::default();
 
         assert_eq!(false, buf.active);
         assert_eq!(false, buf.is_active());
@@ -119,8 +119,10 @@ mod test {
 
         assert_eq!(0, buf.get_buffer_length());
 
-        assert_eq!("fundamental-mode", buf.major_mode.human_name);
-        assert_eq!(0, buf.minor_modes.len());
+        assert_eq!("fundamental-mode", buf.get_major_mode().human_name);
+
         assert_eq!(false, buf.dirty);
+
+        assert_eq!(0, buf.text.unwrap().len());
     }
 }

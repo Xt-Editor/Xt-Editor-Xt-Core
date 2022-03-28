@@ -1,9 +1,11 @@
-//! Crate for the core functions and modules of Xt.
+//! CLI tool for interacting with Xt's core.
 #![deny(
+    warnings,
     missing_copy_implementations,
     missing_debug_implementations,
     missing_docs,
     clippy::all,
+    clippy::pedantic,
     clippy::cargo,
     trivial_casts,
     trivial_numeric_casts,
@@ -14,9 +16,6 @@
     variant_size_differences
 )]
 
-#[macro_use]
-extern crate slog;
-
-extern crate xt_core_utils as utils;
-
-pub(crate) mod server;
+fn main() {
+    unimplemented!();
+}

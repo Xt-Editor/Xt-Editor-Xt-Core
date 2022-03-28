@@ -3,30 +3,39 @@ members = [
    "bin/xt-cli",
    "bin/xt-daemon",
    "bin/xt-remote-daemon",
-   "lib/xt_core/plugin",
-   "lib/xt_core/rpc",
-   "lib/xt_core/utils",
-   "lib/xt_core/system"
+   "src/xt-core",
+#   TBA.
+#   "src/xt-rpc",
+#   "src/xt-utils",
+#   "src/xt-plugin",
 ]
 
 [profile.dev]
-lto = true
-opt-level = 's'
+opt-level = 3
 codegen-units = 1
 debug = true
+lto = true
+strip = false
+incremental = false
 
 [profile.dev.package."*"]
+opt-level = 3
 codegen-units = 1
-opt-level = 's'
 debug = true
+strip = false
+incremental = false
 
 [profile.release]
-lto = true
 opt-level = 'z'
 codegen-units = 1
 debug = true
+lto = true
+strip = true
+incremental = false
 
 [profile.release.package."*"]
-codegen-units = 1
 opt-level = 'z'
-debug = false
+codegen-units = 1
+debug = true
+strip = true
+incremental = false

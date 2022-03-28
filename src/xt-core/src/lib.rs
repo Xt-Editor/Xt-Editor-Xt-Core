@@ -1,11 +1,10 @@
-//! Remote daemon for Xt.
-//! This handles remote communications over remote sessions.
+//! Crate for the core functions and modules of Xt.
 #![deny(
+    warnings,
     missing_copy_implementations,
     missing_debug_implementations,
     missing_docs,
     clippy::all,
-    clippy::pedantic,
     clippy::cargo,
     trivial_casts,
     trivial_numeric_casts,
@@ -15,7 +14,9 @@
     unused_extern_crates,
     variant_size_differences
 )]
+#![allow(dead_code)]
 
-fn main() {
-    unimplemented!();
-}
+pub(crate) mod logging;
+pub(crate) mod workspace;
+pub(crate) mod buffer;
+pub(crate) mod modes;
