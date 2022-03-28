@@ -16,7 +16,7 @@
 )]
 #![allow(dead_code)]
 
-pub(crate) mod logging;
-pub(crate) mod workspace;
 pub(crate) mod buffer;
+pub(crate) mod logging;
 pub(crate) mod modes;
+pub(crate) mod workspace;
