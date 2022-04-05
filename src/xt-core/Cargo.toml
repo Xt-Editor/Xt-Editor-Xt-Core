@@ -30,4 +30,4 @@ features = ["serde", "v4"]
 
 [dependencies.clap]
 features = ["suggestions", "color", "wrap_help"]
-version = "3.1.6"
+version = "3.1.8"
