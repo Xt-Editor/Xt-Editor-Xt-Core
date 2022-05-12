@@ -14,10 +14,10 @@ edition = "2021"
 [dependencies]
 gapbuffer = "0.1.1"
 slog-term = "2.9.0"
-rmp = "0.8.10"
-rmp-serde = "1.0.0"
-serde = "1.0.136"
-serde_derive = "1.0.136"
+rmp = "0.8.11"
+rmp-serde = "1.1.0"
+serde = "1.0.137"
+serde_derive = "1.0.137"
 
 [dependencies.slog]
 version = "2.7.0"
@@ -25,9 +25,9 @@ default-features = true
 features = ["max_level_trace", "release_max_level_warn"]
 
 [dependencies.uuid]
-version = "0.8.2"
+version = "1.0.0"
 features = ["serde", "v4"]
 
 [dependencies.clap]
 features = ["suggestions", "color", "wrap_help"]
-version = "3.1.8"
+version = "3.1.18"
