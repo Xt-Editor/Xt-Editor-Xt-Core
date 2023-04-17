@@ -8,18 +8,18 @@ use uuid::Uuid;
 #[derive(Debug, Clone)]
 pub struct Workspace {
     /// Human-readable name for workspace.
-    pub human_name: String,
+    human_name: String,
     /// Workspace UUID
-    pub uuid: Uuid,
+    uuid: Uuid,
     /// Vector of Buffer structs.
-    pub buffers: Vec<Buffer>,
+    buffers: Vec<Buffer>,
 }
 
 impl Workspace {
     /// Create a new workspace.
-    pub fn new(human_name: String) -> Self {
+    pub fn new(human_name: &str) -> Self {
         Self {
-            human_name,
+            human_name: String::from(human_name),
             uuid: Uuid::new_v4(),
             buffers: Vec::new(),
         }
@@ -32,6 +32,11 @@ impl Workspace {
 
     /// Get (formatted, hyphen) UUID of workspace.
     pub fn get_fmt_uuid(&self) -> String {
-        self.uuid.to_hyphenated().to_owned().to_string()
+        self.uuid.as_hyphenated().to_string()
+    }
+
+    /// Get 'owned' `Vec<Buffer>`.
+    pub fn get_buffers(&self) -> Vec<Buffer> {
+        self.buffers.clone()
     }
 }

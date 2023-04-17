@@ -16,7 +16,10 @@
 )]
 #![allow(dead_code)]
 
-pub(crate) mod buffer;
-pub(crate) mod logging;
-pub(crate) mod modes;
-pub(crate) mod workspace;
+mod buffer;
+pub mod logging;
+mod modes;
+mod workspace;
+
+pub use buffer::Buffer;
+pub use workspace::Workspace;

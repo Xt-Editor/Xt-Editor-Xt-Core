@@ -17,7 +17,9 @@ impl Default for MajorMode {
 
 impl MajorMode {
     /// Create a new instance of a Minor Mode.
-    pub fn new(human_name: String) -> Self {
-        Self { human_name }
+    pub fn new(human_name: &str) -> Self {
+        Self {
+            human_name: String::from(human_name),
+        }
     }
 }
