@@ -6,5 +6,5 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [[bin]]
-name = "xtr"
+name = "xtrd"
 path = "src/main.rs"
