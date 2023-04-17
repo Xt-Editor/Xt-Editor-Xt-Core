@@ -1,4 +1,4 @@
-//! CLI tool for interacting with Xt's core.
+//! CLI tool for interacting with the Xt daemon.
 #![deny(
     warnings,
     missing_copy_implementations,

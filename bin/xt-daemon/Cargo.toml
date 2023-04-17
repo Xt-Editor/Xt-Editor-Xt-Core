@@ -1,15 +1,18 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
-description = "Server for Xt Core"
+description = "The accompanying daemon, based from Xt Core."
 homepage = "https://github.com/xt-editor/xt-core"
 keywords = ["text", "editor", "framework"]
 license = "MIT OR Apache-2.0"
 name = "xt-daemon"
 readme = "README.md"
-repository = "https://github.com/xt-editor/xt-core.git"
+repository = "https://github.com/Xt-Editor/Xt-Core.git"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
 name = "xtd"
 path = "src/main.rs"
+
+[dependencies.xt-core]
+path = "../../src/xt-core"

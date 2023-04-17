@@ -1,4 +1,4 @@
-//! This module serves as the entry point into Xt's main binary.
+//! This module serves as the main daemon, based on the Xt Core.
 #![deny(
     warnings,
     missing_copy_implementations,

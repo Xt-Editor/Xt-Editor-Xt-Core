@@ -1,5 +1,5 @@
 //! Remote daemon for Xt.
-//! This handles remote communications over remote sessions.
+//! This handles remote communications over remote sessions, such as SSH, or via pipes.
 #![deny(
     warnings,
     missing_copy_implementations,
