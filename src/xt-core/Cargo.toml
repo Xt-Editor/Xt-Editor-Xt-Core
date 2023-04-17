@@ -1,23 +1,27 @@
 [package]
 authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
-description = "System module for Xt Core"
+description = "Xt Core - useless on its own."
 homepage = "https://github.com/xt-editor/xt-core"
-keywords = ["text", "editor", "framework"]
-categories = ["editor"]
-name = "xt-core-system"
+keywords = ["text-editor"]
+categories = ["text-editor"]
+name = "xt-core"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/xt-editor/xt-core.git"
+repository = "https://github.com/Xt-Editor/Xt-Core.git"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "xt_core"
+path = "src/lib.rs"
+
 [dependencies]
-gapbuffer = "0.1.1"
+ropey = "1.6.0"
 slog-term = "2.9.0"
 rmp = "0.8.11"
-rmp-serde = "1.1.0"
-serde = "1.0.137"
-serde_derive = "1.0.137"
+rmp-serde = "1.1.1"
+serde = "1.0.160"
+serde_derive = "1.0.160"
 
 [dependencies.slog]
 version = "2.7.0"
@@ -25,9 +29,9 @@ default-features = true
 features = ["max_level_trace", "release_max_level_warn"]
 
 [dependencies.uuid]
-version = "1.0.0"
+version = "1.3.1"
 features = ["serde", "v4"]
 
 [dependencies.clap]
 features = ["suggestions", "color", "wrap_help"]
-version = "3.1.18"
+version = "4.2.2"
