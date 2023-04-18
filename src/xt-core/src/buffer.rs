@@ -65,8 +65,10 @@ impl Buffer {
     /// Return true if a buffer is read only.
     ///
     /// Being read-only has a special meaning in Xt.
+    ///
     /// It means when a buffer is explictly prevented from being
     /// written to, or otherwise manipulated.
+    ///
     /// It has nothing to do with the underlying filesystem.
     pub fn is_read_only(&self) -> bool {
         self.read_only
