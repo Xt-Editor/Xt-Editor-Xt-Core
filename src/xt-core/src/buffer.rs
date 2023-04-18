@@ -15,7 +15,7 @@ pub struct Buffer {
     active: bool,
     /// Temporary status of a buffer.
     temporary: bool,
-    /// If a buffer is read-onl.
+    /// If a buffer is read-only.
     read_only: bool,
     /// Major mode of a buffer
     major_mode: Option<MajorMode>,
