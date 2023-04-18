@@ -4,10 +4,6 @@ members = [
    "bin/xt-daemon",
    "bin/xt-remote-daemon",
    "src/xt-core",
-#   TBA.
-#   "src/xt-rpc",
-#   "src/xt-utils",
-#   "src/xt-plugin",
 ]
 
 [profile.dev]
