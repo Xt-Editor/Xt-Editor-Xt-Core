@@ -17,14 +17,14 @@ pub struct Buffer {
     temporary: bool,
     /// If a buffer is read-only.
     read_only: bool,
-    /// Major mode of a buffer
-    major_mode: Option<MajorMode>,
-    /// Array of Minor modes in a buffer
-    minor_modes: Option<Vec<MinorMode>>,
-    /// Dirty status of a buffer
+    /// Major mode of a buffer.
+    major_mode: MajorMode,
+    /// Array of Minor modes in a buffer.
+    minor_modes: Vec<MinorMode>,
+    /// Dirty status of a buffer.
     dirty: bool,
     /// Contents of a buffer.
-    contents: Option<Rope>,
+    contents: Rope,
 }
 
 impl Default for Buffer {
@@ -35,10 +35,10 @@ impl Default for Buffer {
             active: false,
             temporary: false,
             read_only: false,
-            major_mode: Some(MajorMode::default()),
-            minor_modes: Some(Vec::new()),
+            major_mode: MajorMode::default(),
+            minor_modes: Vec::new(),
             dirty: false,
-            contents: Some(Rope::new()),
+            contents: Rope::new(),
         }
     }
 }
@@ -88,13 +88,13 @@ impl Buffer {
     }
 
     /// Return the current major mode of a buffer.
-    pub fn get_major_mode(&self) -> MajorMode {
-        self.major_mode.as_ref().unwrap().clone()
+    pub fn get_major_mode(&self) -> Option<MajorMode> {
+        Some(self.major_mode.clone())
     }
 
     /// Return a `Vec<MinorMode>` array of minor modes.
-    pub fn get_minor_modes(&self) -> Vec<MinorMode> {
-        self.minor_modes.as_ref().unwrap().to_vec()
+    pub fn get_minor_modes(&self) -> Option<Vec<MinorMode>> {
+        Some(self.minor_modes.clone())
     }
 }
 
@@ -110,10 +110,13 @@ mod test {
 
         assert_eq!(true, buf.is_temporary());
 
-        assert_eq!(false, buf.is_ro());
+        assert_eq!(false, buf.is_read_only());
 
-        assert_eq!("fundamental-mode", buf.get_major_mode().human_name);
+        assert_eq!(false, buf.is_dirty());
 
-        assert_eq!(false, buf.dirty);
+        assert_eq!(
+            "fundamental-mode",
+            buf.get_major_mode().unwrap().human_name
+        );
     }
 }
