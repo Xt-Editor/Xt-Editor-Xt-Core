@@ -19,13 +19,13 @@
         defaultPackage = naersk'.buildPackage {
           src = ./.;
           nativeBuildInputs = with pkgs; [ pkg-config cmake ] ;
-          buildInputs = with pkgs; [ systemd.dev dbus.dev ];
+          buildInputs = with pkgs; [ ];
         };
 
         # For `nix develop`:
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [ rustc cargo pkg-config cmake ];
-          buildInputs = with pkgs; [ systemd.dev dbus.dev ];
+          buildInputs = with pkgs; [ ];
         };
       }
     );
