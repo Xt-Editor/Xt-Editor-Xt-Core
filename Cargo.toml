@@ -1,9 +1,9 @@
 [workspace]
 members = [
-   "bin/xt-cli",
-   "bin/xt-daemon",
-   "bin/xt-remote-daemon",
-   "src/xt-core",
+   "src/bin/client",
+   "src/bin/remote-server",
+   "src/bin/server",
+   "src/lib/core",
 ]
 
 [profile.dev]

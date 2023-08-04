@@ -1,0 +1,10 @@
+[package]
+name = "xt-remote-server"
+version = "0.1.0"
+authors = ["Dom Rodriguez <shymega@shymega.org.uk>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "xtrd"
+path = "src/main.rs"

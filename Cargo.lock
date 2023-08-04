@@ -651,7 +651,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1a515f5799fe4961cb532f983ce2b23082366b898e52ffbce459c86f67c8378a"
 
 [[package]]
-name = "xt-cli"
+name = "xt-client"
 version = "0.1.0"
 
 [[package]]
@@ -670,12 +670,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "xt-daemon"
+name = "xt-remote-server"
+version = "0.1.0"
+
+[[package]]
+name = "xt-server"
 version = "0.1.0"
 dependencies = [
  "xt-core",
 ]
-
-[[package]]
-name = "xt-remote-daemon"
-version = "0.1.0"
