@@ -18,10 +18,10 @@ path = "src/lib.rs"
 [dependencies]
 ropey = "1.6.0"
 slog-term = "2.9.0"
-rmp = "0.8.11"
-rmp-serde = "1.1.1"
-serde = "1.0.171"
-serde_derive = "1.0.160"
+rmp = "0.8.12"
+rmp-serde = "1.1.2"
+serde = "1.0.181"
+serde_derive = "1.0.181"
 
 [dependencies.slog]
 version = "2.7.0"
@@ -29,9 +29,9 @@ default-features = true
 features = ["max_level_trace", "release_max_level_warn"]
 
 [dependencies.uuid]
-version = "1.4.0"
+version = "1.4.1"
 features = ["serde", "v4"]
 
 [dependencies.clap]
 features = ["suggestions", "color", "wrap_help"]
-version = "4.3.12"
+version = "4.3.19"
